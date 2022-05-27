@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
+import SegmentedControl from "../components/SegmentedControl";
 
 const Home: NextPage = () => {
   return (
@@ -10,9 +11,19 @@ const Home: NextPage = () => {
         <meta name="description" content="Student from New York" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className="mx-auto max-w-xl px-4 pt-32">
-        <h1 className="text-xl">David Mo</h1>
+        <div className="flex flex-row justify-center">
+          <SegmentedControl
+            options={[
+              { title: "All", value: "all" },
+              { title: "Projects", value: "projects" },
+              { title: "Writing", value: "writing" },
+            ]}
+            defaultIndex={0}
+            callback={(val) => console.log(val)}
+          ></SegmentedControl>
+        </div>
+        <h1 className="mt-16 text-xl">David Mo</h1>
         <p className="text-gray-400">New York, USA</p>
         <p className="mt-6">
           Computer science student at NYU passionate in programming and design.
