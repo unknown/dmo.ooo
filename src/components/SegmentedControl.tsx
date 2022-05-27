@@ -72,4 +72,6 @@ const SegmentedControl = React.forwardRef<
   );
 });
 
+SegmentedControl.displayName = "SegmentedControl";
+
 export default SegmentedControl;
