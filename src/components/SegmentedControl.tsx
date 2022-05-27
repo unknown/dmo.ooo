@@ -31,7 +31,7 @@ const SegmentedControl = React.forwardRef<
       segmentRefs[activeIndex].current?.getBoundingClientRect()
     );
     setWrapperBoundingBox(wrapperRef.current?.getBoundingClientRect());
-  }, [activeIndex]);
+  }, [segmentRefs, activeIndex]);
 
   const onChange = (value: string, index: number) => {
     setActiveIndex(index);
@@ -57,7 +57,7 @@ const SegmentedControl = React.forwardRef<
         />
         {options.map((item, i) => (
           <div
-            className="z-10 px-4 py-2"
+            className="cursor: pointer; z-10 cursor-pointer px-4 py-2 transition-opacity hover:opacity-60"
             onClick={(e) => {
               onChange(item.value, i);
             }}
