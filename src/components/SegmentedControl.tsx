@@ -10,14 +10,10 @@ type SegmentedControlProps = React.ComponentPropsWithoutRef<"div"> & {
 const SegmentedControl = React.forwardRef<
   SegmentedControlElement,
   SegmentedControlProps
->(({ options, defaultIndex, callback }, ref) => {
+>(({ options, defaultIndex, callback, ...restProps }, forwardedRef) => {
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex);
-  const [segmentBoundingBox, setSegmentBoundingBox] = React.useState<
-    DOMRect | undefined
-  >();
-  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<
-    DOMRect | undefined
-  >();
+  const [segmentBoundingBox, setSegmentBoundingBox] = React.useState<DOMRect>();
+  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<DOMRect>();
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const highlightRef = React.useRef<HTMLDivElement>(null);
@@ -48,7 +44,11 @@ const SegmentedControl = React.forwardRef<
   }
 
   return (
-    <div className="rounded-full bg-gray-100 p-1" ref={ref}>
+    <div
+      className="rounded-full bg-gray-100 p-1"
+      {...restProps}
+      ref={forwardedRef}
+    >
       <div className="relative flex flex-row" ref={wrapperRef}>
         <div
           className="absolute top-0 left-0 z-0 h-10 rounded-full bg-white shadow-md transition-all"
