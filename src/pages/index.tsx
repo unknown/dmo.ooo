@@ -5,6 +5,84 @@ import SegmentedControl from "../components/SegmentedControl";
 import TimelineItem from "../components/TimelineItem";
 
 const Home: NextPage = () => {
+  const posts = [
+    {
+      data: {
+        date: "May 16, 2022",
+        title: "Portfolio website",
+        text: "This portfolio website built with Next.js",
+      },
+      tags: [
+        {
+          title: "Project",
+          value: "projects",
+          color: "#9AD9F4",
+        },
+      ],
+    },
+    {
+      data: {
+        date: "May 16, 2022",
+        title: "Arithmetic",
+        text: "A fast-paced arithmetic drill built with Next.js",
+      },
+      tags: [
+        {
+          title: "Project",
+          value: "projects",
+          color: "#9AD9F4",
+        },
+      ],
+    },
+    {
+      data: {
+        date: "May 16, 2022",
+        title: "Arithmetic",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      },
+      tags: [
+        {
+          title: "Project",
+          value: "projects",
+          color: "#9AD9F4",
+        },
+      ],
+    },
+    {
+      data: {
+        date: "May 16, 2022",
+        title: "Arithmetic",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis feugiat vivamus at augue eget arcu dictum.",
+      },
+      tags: [
+        {
+          title: "Project",
+          value: "projects",
+          color: "#9AD9F4",
+        },
+        {
+          title: "Experience",
+          value: "experience",
+          color: "#F4E09A",
+        },
+      ],
+    },
+    {
+      data: {
+        date: "May 16, 2022",
+        title: "Arithmetic",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id semper risus in hendrerit gravida rutrum quisque non.",
+      },
+      tags: [
+        {
+          title: "Project",
+          value: "projects",
+          color: "#9AD9F4",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen antialiased">
       <Head>
@@ -42,45 +120,16 @@ const Home: NextPage = () => {
         </div>
         <div className="mt-16">
           <h1 className="mb-6 text-xl">2022</h1>
-          <TimelineItem
-            data={{
-              date: "May 21, 2022",
-              title: "Portfolio website",
-              text: "This portfolio website built with Next.js",
-            }}
-            drawLine
-          />
-          <TimelineItem
-            data={{
-              date: "May 16, 2022",
-              title: "Arithmetic",
-              text: "A fast-paced arithmetic drill built with Next.js",
-            }}
-            drawLine
-          />
-          <TimelineItem
-            data={{
-              date: "May 13, 2022",
-              title: "Arithmetic",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            }}
-            drawLine
-          />
-          <TimelineItem
-            data={{
-              date: "May 12, 2022",
-              title: "Arithmetic",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis feugiat vivamus at augue eget arcu dictum.",
-            }}
-            drawLine
-          />
-          <TimelineItem
-            data={{
-              date: "May 1, 2022",
-              title: "Arithmetic",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id semper risus in hendrerit gravida rutrum quisque non.",
-            }}
-          />
+          {posts.map((item, i) => {
+            return (
+              <TimelineItem
+                key={item.data.title}
+                data={item.data}
+                tags={item.tags}
+                drawLine={i + 1 !== posts.length}
+              />
+            );
+          })}
         </div>
       </main>
     </div>
