@@ -34,6 +34,7 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
                 <div
                   className="mb-3 rounded-lg px-3 py-1"
                   style={{ background: item.color }}
+                  key={item.value}
                 >
                   <p className="opacity-70">{item.title}</p>
                 </div>
