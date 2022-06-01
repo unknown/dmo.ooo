@@ -37,7 +37,7 @@ const Home: NextPage = () => {
     {
       data: {
         date: "May 16, 2022",
-        title: "Arithmetic",
+        title: "Huhrithmetic",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       tags: [
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
     {
       data: {
         date: "May 16, 2022",
-        title: "Arithmetic",
+        title: "Bruhrithmetic",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis feugiat vivamus at augue eget arcu dictum.",
       },
       tags: [
@@ -70,14 +70,14 @@ const Home: NextPage = () => {
     {
       data: {
         date: "May 16, 2022",
-        title: "Arithmetic",
+        title: "Arr-ithmetic",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id semper risus in hendrerit gravida rutrum quisque non.",
       },
       tags: [
         {
-          title: "Project",
-          value: "projects",
-          color: "#9AD9F4",
+          title: "Experience",
+          value: "experience",
+          color: "#F4E09A",
         },
       ],
     },

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 type SegmentedControlElement = React.ElementRef<"div">;
 type SegmentedControlProps = React.ComponentPropsWithoutRef<"div"> & {
@@ -12,36 +13,11 @@ const SegmentedControl = React.forwardRef<
   SegmentedControlProps
 >(({ options, defaultIndex, callback, ...restProps }, forwardedRef) => {
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex);
-  const [segmentBoundingBox, setSegmentBoundingBox] = React.useState<DOMRect>();
-  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<DOMRect>();
-
-  const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const highlightRef = React.useRef<HTMLDivElement>(null);
-  const segmentRefs = React.useMemo(
-    () => options.map(() => React.createRef<HTMLDivElement>()),
-    [options]
-  );
-
-  React.useEffect(() => {
-    setSegmentBoundingBox(
-      segmentRefs[activeIndex].current?.getBoundingClientRect()
-    );
-    setWrapperBoundingBox(wrapperRef.current?.getBoundingClientRect());
-  }, [segmentRefs, activeIndex]);
 
   const onChange = (value: string, index: number) => {
     setActiveIndex(index);
     callback(value);
   };
-
-  const highlightStyles: React.CSSProperties = {};
-
-  if (segmentBoundingBox && wrapperBoundingBox) {
-    highlightStyles.width = `${segmentBoundingBox.width}px`;
-    highlightStyles.left = `${
-      segmentBoundingBox.left - wrapperBoundingBox.left
-    }px`;
-  }
 
   return (
     <div
@@ -49,23 +25,24 @@ const SegmentedControl = React.forwardRef<
       {...restProps}
       ref={forwardedRef}
     >
-      <div className="relative flex flex-row" ref={wrapperRef}>
-        <div
-          className="absolute top-0 left-0 z-0 h-10 rounded-full bg-white shadow-md transition-all"
-          style={highlightStyles}
-          ref={highlightRef}
-        />
+      <div className="flex flex-row">
         {options.map((item, i) => (
-          <div
-            className="cursor: pointer; z-10 cursor-pointer px-4 py-2 transition-opacity hover:opacity-60"
-            onClick={(e) => {
+          <motion.div
+            className="relative cursor-pointer px-4 py-2"
+            whileTap={i === activeIndex ? { scale: 0.95 } : { opacity: 0.6 }}
+            onClick={() => {
               onChange(item.value, i);
             }}
             key={item.value}
-            ref={segmentRefs[i]}
           >
-            {item.title}
-          </div>
+            {i === activeIndex && (
+              <motion.div
+                className="absolute inset-0 z-0 rounded-full bg-white shadow-md"
+                layoutId="active"
+              />
+            )}
+            <p className="relative z-10">{item.title}</p>
+          </motion.div>
         ))}
       </div>
     </div>
