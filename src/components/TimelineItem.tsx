@@ -1,3 +1,4 @@
+import { motion, MotionProps } from "framer-motion";
 import React from "react";
 
 type TimelineItemElement = React.ElementRef<"div">;
@@ -51,4 +52,6 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
 
 TimelineItem.displayName = "TimelineItem";
 
-export default TimelineItem;
+const MotionTimelineItem = motion(TimelineItem);
+
+export default MotionTimelineItem;
