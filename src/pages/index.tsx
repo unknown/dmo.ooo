@@ -100,7 +100,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Student from New York" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto max-w-xl px-4 pt-32">
+      <main className="mx-auto max-w-xl px-4 pt-16">
         <div className="flex flex-row justify-center">
           <SegmentedControl
             options={[
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
         <p className="mt-6">
           Computer science student at NYU passionate in programming and design.
         </p>
-        <div className="mt-6 flex gap-4">
+        <div className="mt-8 flex gap-4">
           <a href="https://github.com/unknown">
             <GitHubIcon />
           </a>
@@ -142,6 +142,7 @@ const Home: NextPage = () => {
                   tags={item.tags}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
+                  layout
                   drawLine={i + 1 !== filteredPosts.length}
                 />
               );
