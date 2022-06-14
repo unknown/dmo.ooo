@@ -14,7 +14,7 @@ const SegmentedControl = React.forwardRef<
 >(({ options, defaultIndex, callback, ...restProps }, forwardedRef) => {
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex);
 
-  const onChange = (value: string, index: number) => {
+  const onClick = (value: string, index: number) => {
     setActiveIndex(index);
     callback(value);
   };
@@ -28,17 +28,23 @@ const SegmentedControl = React.forwardRef<
       <div className="flex flex-row">
         {options.map((item, i) => (
           <motion.div
-            className="relative cursor-pointer px-4 py-2"
+            className="relative cursor-pointer rounded-full px-4 py-2"
             whileTap={i === activeIndex ? { scale: 0.95 } : { opacity: 0.6 }}
             onClick={() => {
-              onChange(item.value, i);
+              onClick(item.value, i);
             }}
             key={item.value}
           >
             {i === activeIndex && (
               <motion.div
                 className="absolute inset-0 z-0 rounded-full bg-white shadow-md"
+                style={{ borderRadius: 100 }}
                 layoutId="active"
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 40,
+                }}
               />
             )}
             <p className="relative z-10">{item.title}</p>
