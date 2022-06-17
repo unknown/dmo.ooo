@@ -24,9 +24,9 @@ type Tag = {
 const posts = [
   {
     data: {
-      date: "May 16, 2022",
+      date: "Jun 16, 2022",
       title: "Personal website",
-      text: "Crafted this portfolio website with a timeline feed using React (Next.js) and Framer Motion for animations.",
+      text: "A portfolio website featuring a personal timeline of milestones.\n Crafted using React (Next.js) and Framer Motion for animations.",
     },
     tags: [
       {
@@ -106,8 +106,12 @@ const Home: NextPage = () => {
   return (
     <div className="min-h-screen antialiased">
       <Head>
-        <title>David Mo — Developer & Designer</title>
-        <meta name="description" content="Student from New York" />
+        <title>David Mo</title>
+        <meta name="author" content="David Mo" />
+        <meta
+          name="description"
+          content="Programmer and designer living in New York"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="mx-auto max-w-xl px-4 pt-16">
