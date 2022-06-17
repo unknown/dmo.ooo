@@ -21,7 +21,7 @@ const SegmentedControl = React.forwardRef<
 
   return (
     <div
-      className="rounded-full bg-gray-100 p-1"
+      className="rounded-full bg-gray-100 p-1 supports-backdrop-blur:bg-gray-100/80 supports-backdrop-blur:backdrop-blur-md"
       {...restProps}
       ref={forwardedRef}
     >
