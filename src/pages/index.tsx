@@ -115,7 +115,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="mx-auto max-w-xl px-4 pt-16">
-        <div className="flex flex-row justify-center">
+        <div className="sticky top-6 z-10 flex flex-row justify-center">
           <SegmentedControl
             options={[
               { title: "All", value: "all" },
