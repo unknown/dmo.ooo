@@ -42,8 +42,12 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
               );
             })}
           </div>
-          <h2 className="font-bold">{data.title}</h2>
-          <p>{data.text}</p>
+          <div className="flex flex-col gap-2">
+            <h2 className="font-bold">{data.title}</h2>
+            {data.text.split("\n").map((str, i) => (
+              <p key={i}>{str}</p>
+            ))}
+          </div>
         </div>
       </div>
     );
