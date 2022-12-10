@@ -22,7 +22,7 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
         )}
         <div className="absolute h-4 w-4 translate-y-1 -translate-x-1/2 rounded-full border-2 border-gray-300 bg-white ring-8 ring-white" />
         <div className="pl-8">
-          <p className="mb-2 text-gray-400 lg:hidden">{data.date}</p>
+          <p className="mb-2 text-gray-500 lg:hidden">{data.date}</p>
           <div className="flex flex-row gap-3">
             {tags.map((item) => {
               return (

@@ -80,7 +80,7 @@ const Home: NextPage<HomeProps> = ({
           <div className="h-16 w-16 rounded-full ring-4 ring-gray-300/30">
             <Image
               src="/profile.png"
-              alt="Vercel Logo"
+              alt="Profile picture"
               width={64}
               height={64}
               className="rounded-full"
@@ -88,7 +88,7 @@ const Home: NextPage<HomeProps> = ({
           </div>
           <div>
             <h1 className="text-xl">David Mo</h1>
-            <p className="text-gray-400">New York, USA</p>
+            <p className="text-gray-500">New York, USA</p>
           </div>
         </div>
         <p className="mt-6">
