@@ -58,7 +58,8 @@ const Home: NextPage<HomeProps> = ({
         <meta name="author" content="David Mo" />
         <meta
           name="description"
-          content="Programmer and designer living in New York"
+          content="Programmer and designer studying at New York University"
+          key="desc"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -92,8 +93,8 @@ const Home: NextPage<HomeProps> = ({
           </div>
         </div>
         <p className="mt-6">
-          Computer science student at NYU passionate about programming and
-          design.
+          Computer science student at New York University passionate about
+          programming and design.
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a
@@ -179,6 +180,7 @@ export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async (
         date: "June 29, 2022",
         title: "Intern at Chariot",
         text: "Started a part-time internship at Chariot, prototyping back-end services to process donations from Donor Advised Funds.",
+        url: "https://www.givechariot.com/",
       },
       tags: [
         {
@@ -237,6 +239,7 @@ export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async (
         title: "Dark Patterns Recognition",
         text: "A Chrome Extension that identifies and classifies potential dark patterns on the pages of online stores with 97% accuracy.\n\
               Created Chrome Extension front-end using plain JavaScript that interfaced a Python back-end running Naive Bayes Classifiers using Flask and sklearn.",
+        url: "https://github.com/unknown/dark-patterns-recognition",
       },
       tags: [
         {
