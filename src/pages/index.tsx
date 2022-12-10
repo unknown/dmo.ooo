@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import SegmentedControl from "../components/SegmentedControl";
@@ -75,8 +76,21 @@ const Home: NextPage<HomeProps> = ({
             }}
           />
         </div>
-        <h1 className="mt-16 text-xl">David Mo</h1>
-        <p className="text-gray-400">New York, USA</p>
+        <div className="mt-16 flex items-center gap-6">
+          <div className="h-16 w-16 rounded-full ring-4 ring-gray-300/30">
+            <Image
+              src="/profile.png"
+              alt="Vercel Logo"
+              width={64}
+              height={64}
+              className="rounded-full"
+            />
+          </div>
+          <div>
+            <h1 className="text-xl">David Mo</h1>
+            <p className="text-gray-400">New York, USA</p>
+          </div>
+        </div>
         <p className="mt-6">
           Computer science student at NYU passionate about programming and
           design.
