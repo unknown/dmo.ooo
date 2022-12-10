@@ -86,18 +86,17 @@ const Home: NextPage = () => {
     // create a record mapping categories (e.g. "2022", "Other") to an array of posts
     return posts.reduce((bucketed_posts, post) => {
       const date = new Date(post.data.date);
-      let key = "Other";
       if (
         activeTab === "all" ||
         post.tags.some((tag) => activeTab === tag.value)
       ) {
-        key = date.getFullYear().toString();
+        let key = date.getFullYear().toString();
+        // if an array of posts at `key` doesn't exist, create one
+        if (!bucketed_posts[key]) {
+          bucketed_posts[key] = [];
+        }
+        bucketed_posts[key].push(post);
       }
-      // if an array of posts at `key` doesn't exist, create one
-      if (!bucketed_posts[key]) {
-        bucketed_posts[key] = [];
-      }
-      bucketed_posts[key].push(post);
 
       return bucketed_posts;
     }, {} as Record<string, Post[]>);
