@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.6",
     "framer-motion": "^7.6.19",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "sharp": "^0.31.2"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
