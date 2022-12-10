@@ -6,7 +6,7 @@ import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import SegmentedControl from "../components/SegmentedControl";
 import MotionTimelineItem from "../components/TimelineItem";
 
-type Post = {
+export type Post = {
   data: {
     date: string;
     title: string;
@@ -154,7 +154,6 @@ const Home: NextPage = () => {
             ]}
             defaultIndex={0}
             callback={(val) => {
-              console.log(val);
               setActiveTab(val);
             }}
           />
@@ -207,8 +206,7 @@ const Home: NextPage = () => {
                     return (
                       <MotionTimelineItem
                         key={item.data.title}
-                        data={item.data}
-                        tags={item.tags}
+                        post={item}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}

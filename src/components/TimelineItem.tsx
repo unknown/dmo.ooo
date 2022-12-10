@@ -1,25 +1,17 @@
 import { motion, MotionProps } from "framer-motion";
 import React from "react";
+import { Post } from "../pages";
 import { LinkIcon } from "./Icons";
 
 type TimelineItemElement = React.ElementRef<"div">;
 type TimelineItemProps = React.ComponentPropsWithoutRef<"div"> & {
-  data: {
-    date: string;
-    title: string;
-    text: string;
-    url?: string;
-  };
-  tags: Array<{
-    title: string;
-    value: string;
-    color: string;
-  }>;
+  post: Post;
   drawLine?: boolean;
 };
 
 const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
-  ({ data, tags, drawLine = false, ...restProps }, forwardedRef) => {
+  ({ post, drawLine = false, ...restProps }, forwardedRef) => {
+    const { data, tags } = post;
     return (
       <div className="relative pb-8" {...restProps} ref={forwardedRef}>
         <p className="absolute -left-8 hidden -translate-x-full text-gray-400 lg:block">
