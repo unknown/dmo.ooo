@@ -1,5 +1,6 @@
 import { motion, MotionProps } from "framer-motion";
 import React from "react";
+import { LinkIcon } from "./Icons";
 
 type TimelineItemElement = React.ElementRef<"div">;
 type TimelineItemProps = React.ComponentPropsWithoutRef<"div"> & {
@@ -7,6 +8,7 @@ type TimelineItemProps = React.ComponentPropsWithoutRef<"div"> & {
     date: string;
     title: string;
     text: string;
+    url?: string;
   };
   tags: Array<{
     title: string;
@@ -43,7 +45,14 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
             })}
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="font-bold">{data.title}</h2>
+            {data.url ? (
+              <a href={data.url} className="flex gap-2 font-bold">
+                {data.title}
+                <LinkIcon />
+              </a>
+            ) : (
+              <h2 className="font-bold">{data.title}</h2>
+            )}
             {data.text.split("\n").map((str, i) => (
               <p key={i}>{str}</p>
             ))}
