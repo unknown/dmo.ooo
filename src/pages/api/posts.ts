@@ -55,11 +55,11 @@ const posts = [
     data: {
       date: "Jun 16, 2022",
       title: "Personal website",
-      text: "Built this personal website featuring a timeline of milestones.\n Crafted using React (Next.js) and Framer Motion for animations.",
+      text: "Designed and built this personal website featuring a timeline of milestones.\n Crafted using React (Next.js) and Framer Motion for animations.",
     },
     tags: [
       {
-        title: "Launched a website",
+        title: "Built this website",
         value: "projects",
         color: "#9AD9F4",
       },

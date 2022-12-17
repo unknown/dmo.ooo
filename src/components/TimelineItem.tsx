@@ -38,7 +38,10 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
           </div>
           <div className="flex flex-col gap-2">
             {data.url ? (
-              <a href={data.url} className="flex gap-2 font-bold">
+              <a
+                href={data.url}
+                className="flex gap-2 font-bold hover:underline"
+              >
                 {data.title}
                 <LinkIcon />
               </a>
