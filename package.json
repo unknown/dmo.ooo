@@ -11,9 +11,9 @@
   "dependencies": {
     "@vercel/analytics": "^0.1.6",
     "framer-motion": "^7.6.19",
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sharp": "^0.31.2"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "@types/react-dom": "18.0.4",
     "autoprefixer": "^10.4.7",
     "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6",
+    "eslint-config-next": "^13.1.6",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.11",
