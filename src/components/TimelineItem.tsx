@@ -40,10 +40,11 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
             {data.url ? (
               <a
                 href={data.url}
-                className="flex gap-2 font-bold hover:underline"
+                target="_blank"
+                className="flex items-center gap-1 font-bold hover:underline"
               >
                 {data.title}
-                <LinkIcon />
+                <LinkIcon className="h-4 w-4" strokeWidth={2} />
               </a>
             ) : (
               <h2 className="font-bold">{data.title}</h2>
