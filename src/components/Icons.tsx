@@ -33,6 +33,7 @@ export const GitHubIcon = React.forwardRef<IconElement, IconProps>(
     );
   }
 );
+GitHubIcon.displayName = "GithubIcon";
 
 export const TwitterIcon = React.forwardRef<IconElement, IconProps>(
   ({ strokeWidth = 1.5, ...props }, forwardedRef) => {
@@ -57,6 +58,8 @@ export const TwitterIcon = React.forwardRef<IconElement, IconProps>(
     );
   }
 );
+TwitterIcon.displayName = "TwitterIcon";
+
 export const LinkedInIcon = React.forwardRef<IconElement, IconProps>(
   ({ strokeWidth = 1.5, ...props }, forwardedRef) => {
     return (
@@ -97,6 +100,8 @@ export const LinkedInIcon = React.forwardRef<IconElement, IconProps>(
     );
   }
 );
+LinkedInIcon.displayName = "LinkedInIcon";
+
 export const MailIcon = React.forwardRef<IconElement, IconProps>(
   ({ strokeWidth = 1.5, ...props }, forwardedRef) => {
     return (
@@ -124,6 +129,8 @@ export const MailIcon = React.forwardRef<IconElement, IconProps>(
     );
   }
 );
+MailIcon.displayName = "MailIcon";
+
 export const LinkIcon = React.forwardRef<IconElement, IconProps>(
   ({ strokeWidth = 1.5, ...props }, forwardedRef) => {
     return (
@@ -153,3 +160,4 @@ export const LinkIcon = React.forwardRef<IconElement, IconProps>(
     );
   }
 );
+LinkIcon.displayName = "LinkIcon";

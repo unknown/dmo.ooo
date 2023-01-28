@@ -41,6 +41,7 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
               <a
                 href={data.url}
                 target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-1 font-bold hover:underline"
               >
                 {data.title}
