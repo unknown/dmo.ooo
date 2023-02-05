@@ -1,6 +1,6 @@
 import { motion, MotionProps } from "framer-motion";
 import React from "react";
-import { Post } from "../pages";
+import { Post } from "../pages/api/posts";
 import { LinkIcon } from "./Icons";
 
 type TimelineItemElement = React.ElementRef<"div">;
@@ -29,7 +29,7 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
                 <div
                   className="mb-3 rounded-lg px-3 py-1"
                   style={{ background: item.color }}
-                  key={item.value}
+                  key={item.key}
                 >
                   <p className="opacity-70">{item.title}</p>
                 </div>

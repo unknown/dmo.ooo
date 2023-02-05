@@ -11,8 +11,8 @@ export interface Post {
 }
 
 interface Tag {
+  key: string;
   title: string;
-  value: string;
   color: string;
 }
 
@@ -30,8 +30,8 @@ const posts = [
     },
     tags: [
       {
+        key: "projects",
         title: "Built a website",
-        value: "projects",
         color: "#9AD9F4",
       },
     ],
@@ -45,8 +45,8 @@ const posts = [
     },
     tags: [
       {
+        key: "experience",
         title: "Started an internship",
-        value: "experience",
         color: "#F4E09A",
       },
     ],
@@ -59,8 +59,8 @@ const posts = [
     },
     tags: [
       {
+        key: "projects",
         title: "Built this website",
-        value: "projects",
         color: "#9AD9F4",
       },
     ],
@@ -73,8 +73,8 @@ const posts = [
     },
     tags: [
       {
+        key: "experience",
         title: "Started an internship",
-        value: "experience",
         color: "#F4E09A",
       },
     ],
@@ -88,8 +88,8 @@ const posts = [
     },
     tags: [
       {
+        key: "projects",
         title: "Launched a project",
-        value: "projects",
         color: "#9AD9F4",
       },
     ],
@@ -104,8 +104,8 @@ const posts = [
     },
     tags: [
       {
+        key: "projects",
         title: "Attended a hackathon",
-        value: "projects",
         color: "#9AD9F4",
       },
     ],

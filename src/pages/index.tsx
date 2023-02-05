@@ -6,23 +6,7 @@ import { useMemo, useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import SegmentedControl from "../components/SegmentedControl";
 import MotionTimelineItem from "../components/TimelineItem";
-import { getPosts } from "./api/posts";
-
-export interface Post {
-  data: {
-    date: string;
-    title: string;
-    text: string;
-    url?: string;
-  };
-  tags: Tag[];
-}
-
-interface Tag {
-  title: string;
-  value: string;
-  color: string;
-}
+import { getPosts, Post } from "./api/posts";
 
 interface HomeProps {
   posts: Post[];
@@ -31,14 +15,20 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [activeTab, setActiveTab] = useState("all");
+  const tabs = [
+    { key: "all", title: "All" },
+    { key: "projects", title: "Projects" },
+    { key: "experience", title: "Experience" },
+  ];
+  const [tabIndex, setTabIndex] = useState(0);
+
   const filteredPosts = useMemo(() => {
     // create a record mapping categories (e.g. "2022", "Other") to an array of posts
     return posts.reduce((bucketed_posts, post) => {
       const date = new Date(post.data.date);
       if (
-        activeTab === "all" ||
-        post.tags.some((tag) => activeTab === tag.value)
+        tabs[tabIndex].key === "all" ||
+        post.tags.some((tag) => tabs[tabIndex].key === tag.key)
       ) {
         let key = date.getFullYear().toString();
         // if an array of posts at `key` doesn't exist, create one
@@ -50,7 +40,7 @@ const Home: NextPage<HomeProps> = ({
 
       return bucketed_posts;
     }, {} as Record<string, Post[]>);
-  }, [posts, activeTab]);
+  }, [posts, tabIndex]);
 
   return (
     <div className="min-h-screen antialiased">
@@ -67,14 +57,10 @@ const Home: NextPage<HomeProps> = ({
       <main className="mx-auto max-w-xl px-4 pt-16">
         <div className="sticky top-6 z-10 flex flex-row justify-center">
           <SegmentedControl
-            options={[
-              { title: "All", value: "all" },
-              { title: "Projects", value: "projects" },
-              { title: "Experience", value: "experience" },
-            ]}
-            defaultIndex={0}
-            callback={(val) => {
-              setActiveTab(val);
+            options={tabs}
+            index={tabIndex}
+            callback={(index) => {
+              setTabIndex(index);
             }}
           />
         </div>
@@ -161,9 +147,7 @@ const Home: NextPage<HomeProps> = ({
   );
 };
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   return {
     props: { posts: getPosts() },
   };

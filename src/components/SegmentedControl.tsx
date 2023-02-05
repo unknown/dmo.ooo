@@ -3,22 +3,15 @@ import { motion } from "framer-motion";
 
 type SegmentedControlElement = React.ElementRef<"div">;
 type SegmentedControlProps = React.ComponentPropsWithoutRef<"div"> & {
-  options: Array<{ title: string; value: string }>;
-  defaultIndex: number;
-  callback: (value: string) => void;
+  options: Array<{ key: string; title: string }>;
+  index: number;
+  callback: (index: number) => void;
 };
 
 const SegmentedControl = React.forwardRef<
   SegmentedControlElement,
   SegmentedControlProps
->(({ options, defaultIndex, callback, ...restProps }, forwardedRef) => {
-  const [activeIndex, setActiveIndex] = React.useState(defaultIndex);
-
-  const onClick = (value: string, index: number) => {
-    setActiveIndex(index);
-    callback(value);
-  };
-
+>(({ options, index, callback, ...restProps }, forwardedRef) => {
   return (
     <div
       className="rounded-full bg-gray-100 p-1 supports-backdrop-blur:bg-gray-100/80 supports-backdrop-blur:backdrop-blur-md"
@@ -29,13 +22,11 @@ const SegmentedControl = React.forwardRef<
         {options.map((item, i) => (
           <motion.div
             className="relative cursor-pointer rounded-full px-4 py-2"
-            whileTap={i === activeIndex ? { scale: 0.95 } : { opacity: 0.6 }}
-            onClick={() => {
-              onClick(item.value, i);
-            }}
-            key={item.value}
+            whileTap={i === index ? { scale: 0.95 } : { opacity: 0.6 }}
+            onClick={() => callback(i)}
+            key={item.key}
           >
-            {i === activeIndex && (
+            {i === index && (
               <motion.div
                 className="absolute inset-0 z-0 rounded-full bg-white shadow-md"
                 style={{ borderRadius: 100 }}
