@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import SegmentedControl from "../components/SegmentedControl";
 import MotionTimelineItem from "../components/TimelineItem";
-import { getPosts, Post } from "./api/posts";
+import { getPosts, Post } from "../data/posts";
 
 interface HomeProps {
   posts: Post[];
@@ -22,25 +22,32 @@ const Home: NextPage<HomeProps> = ({
   ];
   const [tabIndex, setTabIndex] = useState(0);
 
-  const filteredPosts = useMemo(() => {
-    // create a record mapping categories (e.g. "2022", "Other") to an array of posts
-    return posts.reduce((bucketed_posts, post) => {
-      const date = new Date(post.data.date);
-      if (
-        tabs[tabIndex].key === "all" ||
-        post.tags.some((tag) => tabs[tabIndex].key === tag.key)
-      ) {
-        let key = date.getFullYear().toString();
-        // if an array of posts at `key` doesn't exist, create one
-        if (!bucketed_posts[key]) {
-          bucketed_posts[key] = [];
-        }
-        bucketed_posts[key].push(post);
-      }
+  // filter posts by tab
+  const filterPosts = (tabName: string) => {
+    return posts.filter((post) => {
+      return tabName === "all" || post.tags.some((tag) => tabName === tag.key);
+    });
+  };
 
-      return bucketed_posts;
-    }, {} as Record<string, Post[]>);
+  // posts bucketed by year
+  const bucketedPosts = useMemo<Record<string, Post[]>>(() => {
+    const map: Record<string, Post[]> = {};
+    // add each post in the current tab to the map
+    filterPosts(tabs[tabIndex].key).forEach((post) => {
+      const date = new Date(post.data.date);
+      const year = date.getFullYear().toString();
+      if (!map[year]) {
+        map[year] = [];
+      }
+      map[year].push(post);
+    });
+    return map;
   }, [posts, tabIndex]);
+
+  // years with posts sorted in reverse-chronological order
+  const sortedGroups = Object.keys(bucketedPosts).sort((a, b) => {
+    return b.localeCompare(a);
+  });
 
   return (
     <div className="min-h-screen antialiased">
@@ -60,7 +67,7 @@ const Home: NextPage<HomeProps> = ({
             options={tabs}
             index={tabIndex}
             callback={(index) => {
-              setTabIndex(index);
+              if (index !== tabIndex) setTabIndex(index);
             }}
           />
         </div>
@@ -69,8 +76,8 @@ const Home: NextPage<HomeProps> = ({
             <Image
               src="/profile.png"
               alt="Profile picture"
-              width={64}
-              height={64}
+              width={128}
+              height={128}
               className="rounded-full"
             />
           </div>
@@ -101,46 +108,34 @@ const Home: NextPage<HomeProps> = ({
           </motion.a>
         </div>
         <div className="mt-16">
-          {Object.keys(filteredPosts)
-            .sort((a, b) => {
-              // sort keys so that "Other" is always last
-              if (a === "Other") return 1;
-              if (b === "Other") return -1;
-              // sort keys in chronological order
-              return b.localeCompare(a);
-            })
-            .map((category) => {
-              return (
-                <AnimatePresence
-                  mode="popLayout"
-                  key={category}
-                  initial={false}
+          {sortedGroups.map((group) => {
+            return (
+              <AnimatePresence mode="popLayout" key={group} initial={false}>
+                <motion.h1
+                  className="mb-6 text-xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  layout
                 >
-                  <motion.h1
-                    className="mb-6 text-xl"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    layout
-                  >
-                    {category}
-                  </motion.h1>
-                  {filteredPosts[category].map((item, i) => {
-                    return (
-                      <MotionTimelineItem
-                        key={item.data.title}
-                        post={item}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        layout
-                        drawLine={i + 1 !== filteredPosts[category].length}
-                      />
-                    );
-                  })}
-                </AnimatePresence>
-              );
-            })}
+                  {group}
+                </motion.h1>
+                {bucketedPosts[group].map((item, i) => {
+                  return (
+                    <MotionTimelineItem
+                      key={item.data.title}
+                      post={item}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      layout
+                      drawLine={i + 1 !== bucketedPosts[group].length}
+                    />
+                  );
+                })}
+              </AnimatePresence>
+            );
+          })}
         </div>
       </main>
     </div>

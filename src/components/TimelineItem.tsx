@@ -1,6 +1,6 @@
 import { motion, MotionProps } from "framer-motion";
 import React from "react";
-import { Post } from "../pages/api/posts";
+import { Post } from "../data/posts";
 import { LinkIcon } from "./Icons";
 
 type TimelineItemElement = React.ElementRef<"div">;

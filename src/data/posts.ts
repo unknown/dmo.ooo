@@ -1,5 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-
 export interface Post {
   data: {
     date: string;
@@ -10,15 +8,11 @@ export interface Post {
   tags: Tag[];
 }
 
-interface Tag {
+export interface Tag {
   key: string;
   title: string;
   color: string;
 }
-
-type Data = {
-  posts: Post[];
-};
 
 const posts = [
   {
@@ -115,10 +109,3 @@ const posts = [
 export const getPosts = () => {
   return posts;
 };
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ posts: getPosts() });
-}
