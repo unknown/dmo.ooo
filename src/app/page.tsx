@@ -2,14 +2,26 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import SegmentedControl from "../components/SegmentedControl";
 import MotionTimelineItem from "../components/TimelineItem";
 import { Post, posts, tabs } from "../data/posts";
 
-export default function IndexPage() {
-  const [tabIndex, setTabIndex] = useState(0);
+type IndexPageProps = {
+  searchParams: { tab?: string };
+};
+
+export default function IndexPage({ searchParams }: IndexPageProps) {
+  const router = useRouter();
+
+  const [tabIndex, setTabIndex] = useState(
+    Math.max(
+      tabs.findIndex((tab) => tab.key === searchParams.tab),
+      0
+    )
+  );
 
   // filter posts by tab
   const filterPosts = (tabName: string) => {
@@ -21,14 +33,11 @@ export default function IndexPage() {
   // posts bucketed by year
   const bucketedPosts = useMemo<Record<string, Post[]>>(() => {
     const map: Record<string, Post[]> = {};
-    // add each post in the current tab to the map
     filterPosts(tabs[tabIndex].key).forEach((post) => {
-      const date = new Date(post.data.date);
-      const year = date.getFullYear().toString();
-      if (!map[year]) {
-        map[year] = [];
-      }
-      map[year].push(post);
+      const year = new Date(post.data.date).getFullYear().toString();
+      const bucket = map[year] ?? [];
+      bucket.push(post);
+      map[year] = bucket;
     });
     return map;
   }, [tabIndex]);
@@ -45,7 +54,10 @@ export default function IndexPage() {
           options={tabs}
           index={tabIndex}
           callback={(index) => {
-            if (index !== tabIndex) setTabIndex(index);
+            if (index !== tabIndex) {
+              router.replace(`/?tab=${tabs[index].key}`);
+              setTabIndex(index);
+            }
           }}
         />
       </div>
@@ -54,8 +66,8 @@ export default function IndexPage() {
           <Image
             src="/profile.png"
             alt="Profile picture"
-            width={128}
-            height={128}
+            width={256}
+            height={256}
             className="rounded-full"
           />
         </div>
