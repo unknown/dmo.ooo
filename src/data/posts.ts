@@ -14,7 +14,13 @@ export interface Tag {
   color: string;
 }
 
-const posts = [
+export const tabs = [
+  { key: "all", title: "All" },
+  { key: "projects", title: "Projects" },
+  { key: "experience", title: "Experience" },
+];
+
+export const posts = [
   {
     data: {
       date: "Nov 17, 2022",
@@ -105,7 +111,3 @@ const posts = [
     ],
   },
 ];
-
-export const getPosts = () => {
-  return posts;
-};

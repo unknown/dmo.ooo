@@ -1,4 +1,4 @@
-import { motion, MotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import { Post } from "../data/posts";
 import { LinkIcon } from "./Icons";
@@ -20,7 +20,7 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
         {drawLine && (
           <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />
         )}
-        <div className="absolute h-4 w-4 translate-y-1 -translate-x-1/2 rounded-full border-2 border-gray-300 bg-white ring-8 ring-white" />
+        <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-white ring-8 ring-white" />
         <div className="pl-8">
           <p className="mb-2 text-gray-500 lg:hidden">{data.date}</p>
           <div className="flex flex-row gap-3">
