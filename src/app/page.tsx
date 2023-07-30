@@ -35,8 +35,8 @@ export default function IndexPage() {
       <header className="sticky top-6 z-10 my-8 flex flex-row justify-center">
         <SegmentedControl
           options={tabs}
-          index={tabIndex}
-          callback={(index) => {
+          selected={tabIndex}
+          onSelect={(index) => {
             if (index !== tabIndex) {
               setTabIndex(index);
             }
