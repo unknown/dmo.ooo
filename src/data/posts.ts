@@ -1,18 +1,16 @@
-export interface Post {
-  data: {
-    date: string;
-    title: string;
-    text: string;
-    url?: string;
-  };
+export type Post = {
+  date: Date;
+  title: string;
+  text: string;
+  url?: string;
   tags: Tag[];
-}
+};
 
-export interface Tag {
+export type Tag = {
   key: string;
   title: string;
   color: string;
-}
+};
 
 export const tabs = [
   { key: "all", title: "All" },
@@ -20,14 +18,12 @@ export const tabs = [
   { key: "experience", title: "Experience" },
 ];
 
-export const posts = [
+export const posts: Post[] = [
   {
-    data: {
-      date: "Nov 17, 2022",
-      title: "BUGS @ NYU",
-      text: "Designed and built the new BUGS @ NYU website.\nBUGS is NYU’s premier open source club, connecting students to create an inclusive environment to work on projects together.",
-      url: "https://bugs-nyu.github.io/",
-    },
+    date: new Date("Nov 17, 2022"),
+    title: "BUGS @ NYU",
+    text: "Designed and built the new BUGS @ NYU website.\nBUGS is NYU’s premier open source club, connecting students to create an inclusive environment to work on projects together.",
+    url: "https://bugs-nyu.github.io/",
     tags: [
       {
         key: "projects",
@@ -37,12 +33,10 @@ export const posts = [
     ],
   },
   {
-    data: {
-      date: "June 29, 2022",
-      title: "Intern at Chariot",
-      text: "Started a part-time internship at Chariot, prototyping back-end services to process donations from Donor Advised Funds.",
-      url: "https://www.givechariot.com/",
-    },
+    date: new Date("June 29, 2022"),
+    title: "Intern at Chariot",
+    text: "Started a part-time internship at Chariot, prototyping back-end services to process donations from Donor Advised Funds.",
+    url: "https://www.givechariot.com/",
     tags: [
       {
         key: "experience",
@@ -52,11 +46,9 @@ export const posts = [
     ],
   },
   {
-    data: {
-      date: "Jun 16, 2022",
-      title: "Personal website",
-      text: "Designed and built this personal website featuring a timeline of milestones.\n Crafted using React (Next.js) and Framer Motion for animations.",
-    },
+    date: new Date("Jun 16, 2022"),
+    title: "Personal website",
+    text: "Designed and built this personal website featuring a timeline of milestones.\n Crafted using React (Next.js) and Framer Motion for animations.",
     tags: [
       {
         key: "projects",
@@ -66,11 +58,9 @@ export const posts = [
     ],
   },
   {
-    data: {
-      date: "May 23, 2022",
-      title: "Intern at Moore Capital Management",
-      text: "Started a summer internship at Moore Capital Management as a software developer on the Portfolio and Risk Team.",
-    },
+    date: new Date("May 23, 2022"),
+    title: "Intern at Moore Capital Management",
+    text: "Started a summer internship at Moore Capital Management as a software developer on the Portfolio and Risk Team.",
     tags: [
       {
         key: "experience",
@@ -80,12 +70,10 @@ export const posts = [
     ],
   },
   {
-    data: {
-      date: "Mar 25, 2022",
-      title: "Arithmetic",
-      text: "A fast-paced arithmetic drill designed to test mental math.\n Built using React (Next.js) with a MySQL database for problem statistics logging.",
-      url: "https://arithmetic.dmo.ooo/",
-    },
+    date: new Date("Mar 25, 2022"),
+    title: "Arithmetic",
+    text: "A fast-paced arithmetic drill designed to test mental math.\n Built using React (Next.js) with a MySQL database for problem statistics logging.",
+    url: "https://arithmetic.dmo.ooo/",
     tags: [
       {
         key: "projects",
@@ -95,13 +83,11 @@ export const posts = [
     ],
   },
   {
-    data: {
-      date: "Nov 11, 2019",
-      title: "Dark Patterns Recognition",
-      text: "A Chrome Extension that identifies and classifies potential dark patterns on the pages of online stores with 97% accuracy.\n\
+    date: new Date("Nov 11, 2019"),
+    title: "Dark Patterns Recognition",
+    text: "A Chrome Extension that identifies and classifies potential dark patterns on the pages of online stores with 97% accuracy.\n\
                   Created Chrome Extension front-end using plain JavaScript that interfaced a Python back-end running Naive Bayes Classifiers using Flask and sklearn.",
-      url: "https://github.com/unknown/dark-patterns-recognition",
-    },
+    url: "https://github.com/unknown/dark-patterns-recognition",
     tags: [
       {
         key: "projects",

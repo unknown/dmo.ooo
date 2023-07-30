@@ -21,16 +21,14 @@ export default function IndexPage() {
   // posts bucketed by year
   const bucketedPosts: Record<string, Post[]> = {};
   filterPosts(tabs[tabIndex].key).forEach((post) => {
-    const year = new Date(post.data.date).getFullYear().toString();
+    const year = post.date.getFullYear().toString();
     const bucket = bucketedPosts[year] ?? [];
     bucket.push(post);
     bucketedPosts[year] = bucket;
   });
 
   // group names sorted in reverse-chronological order
-  const postGroups = Object.keys(bucketedPosts).sort((a, b) =>
-    b.localeCompare(a)
-  );
+  const postGroups = Object.keys(bucketedPosts).sort((a, b) => b.localeCompare(a));
 
   return (
     <main className="mx-auto max-w-xl space-y-16 p-4">
@@ -62,8 +60,7 @@ export default function IndexPage() {
           </div>
         </div>
         <p className="mt-6">
-          Computer science student at New York University passionate about
-          programming and design.
+          Computer science student at New York University passionate about programming and design.
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a
@@ -105,7 +102,7 @@ export default function IndexPage() {
                 {bucketedPosts[groupName].map((item, i) => {
                   return (
                     <MotionTimelineItem
-                      key={item.data.title}
+                      key={item.title}
                       post={item}
                       drawLine={i + 1 !== bucketedPosts[groupName].length}
                       transition={{ duration: 0.2 }}
