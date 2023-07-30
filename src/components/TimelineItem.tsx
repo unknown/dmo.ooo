@@ -1,19 +1,17 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { ElementRef, forwardRef } from "react";
 import { Post } from "../data/posts";
 import { LinkIcon } from "./Icons";
 
-type TimelineItemElement = React.ElementRef<"div">;
-type TimelineItemProps = React.ComponentPropsWithoutRef<"div"> & {
+type TimelineItemProps = {
   post: Post;
   drawLine?: boolean;
 };
 
-const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
-  ({ post, drawLine = false, ...restProps }, forwardedRef) => {
-    const { data, tags } = post;
+const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
+  ({ post: { data, tags }, drawLine = false }, forwardedRef) => {
     return (
-      <div className="relative pb-8" {...restProps} ref={forwardedRef}>
+      <div className="relative pb-8" ref={forwardedRef}>
         <p className="absolute -left-8 hidden -translate-x-full text-gray-400 lg:block">
           {data.date}
         </p>
@@ -41,7 +39,7 @@ const TimelineItem = React.forwardRef<TimelineItemElement, TimelineItemProps>(
               <a
                 href={data.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-1 font-bold hover:underline"
               >
                 {data.title}
