@@ -17,6 +17,7 @@ export const metadata = {
     url: "https://dmo.ooo",
     title: "David Mo",
     description: "Computer science student at New York University",
+    siteName: "David Mo",
   },
 };
 
