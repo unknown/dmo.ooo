@@ -31,7 +31,7 @@ export const GitHubIcon = React.forwardRef<IconElement, IconProps>(
         />
       </svg>
     );
-  }
+  },
 );
 GitHubIcon.displayName = "GithubIcon";
 
@@ -56,7 +56,7 @@ export const TwitterIcon = React.forwardRef<IconElement, IconProps>(
         />
       </svg>
     );
-  }
+  },
 );
 TwitterIcon.displayName = "TwitterIcon";
 
@@ -98,7 +98,7 @@ export const LinkedInIcon = React.forwardRef<IconElement, IconProps>(
         />
       </svg>
     );
-  }
+  },
 );
 LinkedInIcon.displayName = "LinkedInIcon";
 
@@ -127,7 +127,7 @@ export const MailIcon = React.forwardRef<IconElement, IconProps>(
         />
       </svg>
     );
-  }
+  },
 );
 MailIcon.displayName = "MailIcon";
 
@@ -158,6 +158,6 @@ export const LinkIcon = React.forwardRef<IconElement, IconProps>(
         ></path>
       </svg>
     );
-  }
+  },
 );
 LinkIcon.displayName = "LinkIcon";
