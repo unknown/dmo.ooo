@@ -1,18 +1,15 @@
-import React from "react";
+import { forwardRef, SVGProps } from "react";
 
-type IconElement = React.ElementRef<"svg">;
-
-type IconProps = React.ComponentPropsWithoutRef<"svg"> & {};
-
-export const GitHubIcon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+export const GitHubIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (
     <svg
       width="24"
       height="24"
+      strokeWidth={1.5}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      ref={forwardedRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -32,15 +29,16 @@ export const GitHubIcon = React.forwardRef<IconElement, IconProps>((props, forwa
 });
 GitHubIcon.displayName = "GithubIcon";
 
-export const TwitterIcon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+export const TwitterIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (
     <svg
       width="24"
       height="24"
+      strokeWidth={1.5}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      ref={forwardedRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -54,15 +52,16 @@ export const TwitterIcon = React.forwardRef<IconElement, IconProps>((props, forw
 });
 TwitterIcon.displayName = "TwitterIcon";
 
-export const LinkedInIcon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+export const LinkedInIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (
     <svg
       width="24"
       height="24"
+      strokeWidth={1.5}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      ref={forwardedRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -89,15 +88,16 @@ export const LinkedInIcon = React.forwardRef<IconElement, IconProps>((props, for
 });
 LinkedInIcon.displayName = "LinkedInIcon";
 
-export const MailIcon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+export const MailIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (
     <svg
       width="24"
       height="24"
+      strokeWidth={1.5}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      ref={forwardedRef}
+      ref={ref}
       {...props}
     >
       <path
@@ -115,16 +115,17 @@ export const MailIcon = React.forwardRef<IconElement, IconProps>((props, forward
 });
 MailIcon.displayName = "MailIcon";
 
-export const LinkIcon = React.forwardRef<IconElement, IconProps>((props, forwardedRef) => {
+export const LinkIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (
     <svg
       width="24px"
       height="24px"
+      strokeWidth={1.5}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       color="currentColor"
-      ref={forwardedRef}
+      ref={ref}
       {...props}
     >
       <path
