@@ -9,23 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "framer-motion": "^7.10.3",
-    "next": "^13.4.12",
+    "framer-motion": "^10.15.1",
+    "next": "^13.4.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.31.3"
+    "sharp": "^0.32.4"
   },
   "devDependencies": {
-    "@types/node": "17.0.35",
-    "@types/react": "18.0.9",
-    "@types/react-dom": "18.0.4",
+    "@types/node": "^20.4.8",
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
     "autoprefixer": "^10.4.14",
-    "eslint": "8.16.0",
-    "eslint-config-next": "^13.4.12",
+    "eslint": "^8.46.0",
+    "eslint-config-next": "^13.4.13",
     "postcss": "^8.4.27",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.1.13",
+    "prettier": "^3.0.1",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.3.3",
-    "typescript": "4.6.4"
+    "typescript": "^5.1.6"
   }
 }
