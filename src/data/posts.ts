@@ -20,10 +20,23 @@ export const tabs = [
 
 export const posts: Post[] = [
   {
+    date: new Date("Aug 7, 2023"),
+    title: "Awardrobe",
+    text: "Open-source clothes price tracker that notifies you when your favorite clothes go on sale and come back in stock.\n Built using React (Next.js) with a MySQL database for user authentication and data storage.",
+    url: "https://getawardrobe.com/",
+    tags: [
+      {
+        key: "projects",
+        title: "Launched a project",
+        color: "#9AD9F4",
+      },
+    ],
+  },
+  {
     date: new Date("Nov 17, 2022"),
     title: "BUGS @ NYU",
     text: "Designed and built the new BUGS @ NYU website.\nBUGS is NYU’s premier open source club, connecting students to create an inclusive environment to work on projects together.",
-    url: "https://bugs-nyu.github.io/",
+    url: "https://bugsnyu.com/",
     tags: [
       {
         key: "projects",
