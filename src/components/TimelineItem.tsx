@@ -8,7 +8,7 @@ type TimelineItemProps = {
   drawLine?: boolean;
 };
 
-const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
+export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
   ({ post: { date, title, text, url, tags }, drawLine = false }, forwardedRef) => {
     const dateString = date.toLocaleDateString(undefined, {
       month: "short",
@@ -16,15 +16,15 @@ const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
       year: "numeric",
     });
     return (
-      <div className="relative pb-8" ref={forwardedRef}>
+      <div className="relative" ref={forwardedRef}>
         <p className="absolute -left-8 hidden -translate-x-full text-gray-400 lg:block">
           {dateString}
         </p>
         {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
         <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-white ring-8 ring-white" />
-        <div className="flex flex-col gap-3 pl-8">
-          <p className="text-gray-500 lg:hidden">{dateString}</p>
-          <div className="flex flex-row gap-3">
+        <div className="flex flex-col gap-3 pl-8 pb-8">
+          <p className="text-gray-400 lg:hidden text-sm">{dateString}</p>
+          <div className="flex flex-row flex-wrap gap-3">
             {tags.map((item) => (
               <div
                 key={item.key}
@@ -35,20 +35,22 @@ const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
               </div>
             ))}
           </div>
-          <div className="flex flex-col items-start gap-2">
-            {url ? (
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-bold underline-offset-4 hover:underline"
-              >
-                {title}
-                <LinkIcon className="h-4 w-4" strokeWidth={2} />
-              </a>
-            ) : (
-              <h2 className="font-bold">{title}</h2>
-            )}
+          <div className="space-y-1">
+            <h2 className="font-semibold text-lg">
+              {url ? (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-semibold underline-offset-4 hover:underline"
+                >
+                  {title}
+                  <LinkIcon className="h-4 w-4" strokeWidth={2} />
+                </a>
+              ) : (
+                title
+              )}
+            </h2>
             {text.split("\n").map((str, i) => (
               <p key={i}>{str}</p>
             ))}
@@ -61,6 +63,4 @@ const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
 
 TimelineItem.displayName = "TimelineItem";
 
-const MotionTimelineItem = motion(TimelineItem);
-
-export default MotionTimelineItem;
+export const MotionTimelineItem = motion(TimelineItem);

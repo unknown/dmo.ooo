@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
-import SegmentedControl from "../components/SegmentedControl";
-import MotionTimelineItem from "../components/TimelineItem";
+import { SegmentedControl } from "../components/SegmentedControl";
+import { MotionTimelineItem } from "../components/TimelineItem";
 import { Post, posts, tabs } from "../data/posts";
 
 export default function IndexPage() {
@@ -37,7 +37,7 @@ export default function IndexPage() {
       </header>
       <section>
         <div className="flex flex-wrap items-center gap-6">
-          <div className="h-16 w-16 rounded-full ring-4 ring-gray-300/30">
+          <div className="h-16 w-16 rounded-full ring-1 ring-gray-200">
             <Image
               src="/profile.png"
               alt="Profile picture"
@@ -56,6 +56,7 @@ export default function IndexPage() {
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a
+            className="hover:text-gray-600 transition-colors"
             href="https://github.com/unknown"
             target="_blank"
             rel="noopener noreferrer"
@@ -65,6 +66,7 @@ export default function IndexPage() {
             <GitHubIcon />
           </motion.a>
           <motion.a
+            className="hover:text-gray-600 transition-colors"
             href="https://www.linkedin.com/in/davidmo1/"
             target="_blank"
             rel="noopener noreferrer"
@@ -74,6 +76,7 @@ export default function IndexPage() {
             <LinkedInIcon />
           </motion.a>
           <motion.a
+            className="hover:text-gray-600 transition-colors"
             href="mailto:david@dmo.ooo"
             target="_blank"
             rel="noopener noreferrer"
@@ -85,7 +88,7 @@ export default function IndexPage() {
         </div>
       </section>
       <section>
-        <AnimatePresence mode="sync" initial={false}>
+        <AnimatePresence mode="popLayout" initial={false}>
           {postGroups.map((groupName) => {
             return (
               <div key={groupName}>
@@ -99,11 +102,11 @@ export default function IndexPage() {
                 >
                   {groupName}
                 </motion.h1>
-                {bucketedPosts[groupName].map((item, i) => {
+                {bucketedPosts[groupName].map((post, i) => {
                   return (
                     <MotionTimelineItem
-                      key={item.title}
-                      post={item}
+                      key={post.title}
+                      post={post}
                       drawLine={i < bucketedPosts[groupName].length - 1}
                       transition={{ duration: 0.2 }}
                       initial={{ opacity: 0 }}
