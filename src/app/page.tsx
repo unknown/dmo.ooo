@@ -33,15 +33,7 @@ export default function IndexPage() {
   return (
     <main className="mx-auto max-w-xl space-y-16 p-4">
       <header className="sticky top-6 z-10 my-8 flex flex-row justify-center">
-        <SegmentedControl
-          options={tabs}
-          selected={tabIndex}
-          onSelect={(index) => {
-            if (index !== tabIndex) {
-              setTabIndex(index);
-            }
-          }}
-        />
+        <SegmentedControl options={tabs} selected={tabIndex} onSelect={setTabIndex} />
       </header>
       <section>
         <div className="flex flex-wrap items-center gap-6">
@@ -67,6 +59,7 @@ export default function IndexPage() {
             href="https://github.com/unknown"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub profile link"
             whileTap={{ scale: 0.95 }}
           >
             <GitHubIcon />
@@ -75,11 +68,18 @@ export default function IndexPage() {
             href="https://www.linkedin.com/in/davidmo1/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn profile link"
             whileTap={{ scale: 0.95 }}
           >
             <LinkedInIcon />
           </motion.a>
-          <motion.a href="mailto:david@dmo.ooo" whileTap={{ scale: 0.95 }}>
+          <motion.a
+            href="mailto:david@dmo.ooo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Email link"
+            whileTap={{ scale: 0.95 }}
+          >
             <MailIcon />
           </motion.a>
         </div>
@@ -104,7 +104,7 @@ export default function IndexPage() {
                     <MotionTimelineItem
                       key={item.title}
                       post={item}
-                      drawLine={i + 1 !== bucketedPosts[groupName].length}
+                      drawLine={i < bucketedPosts[groupName].length - 1}
                       transition={{ duration: 0.2 }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
