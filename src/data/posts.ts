@@ -28,7 +28,7 @@ export const posts: Post[] = [
       {
         key: "projects",
         title: "Launched a project",
-        color: "#9AD9F4",
+        color: "#04B4FF70",
       },
     ],
   },
@@ -41,7 +41,7 @@ export const posts: Post[] = [
       {
         key: "projects",
         title: "Built a website",
-        color: "#9AD9F4",
+        color: "#04B4FF70",
       },
     ],
   },
@@ -54,19 +54,19 @@ export const posts: Post[] = [
       {
         key: "experience",
         title: "Started an internship",
-        color: "#F4E09A",
+        color: "#FDC70A70",
       },
     ],
   },
   {
     date: new Date("Jun 16, 2022"),
     title: "Personal website",
-    text: "Designed and built this personal website featuring a timeline of milestones.\n Crafted using React (Next.js) and Framer Motion for animations.",
+    text: "Designed and built this personal website featuring a timeline of milestones.\nCrafted using React (Next.js) and Framer Motion for animations.",
     tags: [
       {
         key: "projects",
         title: "Built this website",
-        color: "#9AD9F4",
+        color: "#04B4FF70",
       },
     ],
   },
@@ -78,34 +78,33 @@ export const posts: Post[] = [
       {
         key: "experience",
         title: "Started an internship",
-        color: "#F4E09A",
+        color: "#FDC70A70",
       },
     ],
   },
   {
     date: new Date("Mar 25, 2022"),
     title: "Arithmetic",
-    text: "A fast-paced arithmetic drill designed to test mental math.\n Built using React (Next.js) with a MySQL database for problem statistics logging.",
+    text: "A fast-paced arithmetic drill designed to test mental math.\nBuilt using React (Next.js) with a MySQL database for problem statistics logging.",
     url: "https://arithmetic.dmo.ooo/",
     tags: [
       {
         key: "projects",
         title: "Launched a project",
-        color: "#9AD9F4",
+        color: "#04B4FF70",
       },
     ],
   },
   {
     date: new Date("Nov 11, 2019"),
     title: "Dark Patterns Recognition",
-    text: "A Chrome Extension that identifies and classifies potential dark patterns on the pages of online stores with 97% accuracy.\n\
-                  Created Chrome Extension front-end using plain JavaScript that interfaced a Python back-end running Naive Bayes Classifiers using Flask and sklearn.",
+    text: "A Chrome Extension that identifies and classifies potential dark patterns on the pages of online stores with 97% accuracy.\nCreated Chrome Extension front-end using plain JavaScript that interfaced a Python back-end running Naive Bayes Classifiers using Flask and sklearn.",
     url: "https://github.com/unknown/dark-patterns-recognition",
     tags: [
       {
         key: "projects",
         title: "Attended a hackathon",
-        color: "#9AD9F4",
+        color: "#04B4FF70",
       },
     ],
   },

@@ -20,7 +20,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
           {dateString}
         </p>
         {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
-        <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-white ring-8 ring-white" />
+        <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
         <div className="flex flex-col gap-3 pl-8 pb-8">
           <p className="text-gray-400 lg:hidden text-sm font-medium">{dateString}</p>
           <div className="flex flex-row flex-wrap gap-3">
@@ -30,7 +30,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
                 className="rounded-lg px-3 py-1 text-sm font-medium"
                 style={{ background: item.color }}
               >
-                <p className="opacity-80">{item.title}</p>
+                <p className="opacity-90">{item.title}</p>
               </div>
             ))}
           </div>
