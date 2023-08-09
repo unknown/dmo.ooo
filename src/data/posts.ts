@@ -22,7 +22,7 @@ export const posts: Post[] = [
   {
     date: new Date("Aug 7, 2023"),
     title: "Awardrobe",
-    text: "Open-source clothes price tracker that notifies you when your favorite clothes go on sale and come back in stock.\n Built using React (Next.js) with a MySQL database for user authentication and data storage.",
+    text: "Open-source clothes price tracker that notifies you when your favorite clothes go on sale and come back in stock.\nBuilt using React (Next.js) with a MySQL database for user authentication and data storage.",
     url: "https://getawardrobe.com/",
     tags: [
       {

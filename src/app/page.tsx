@@ -6,36 +6,23 @@ import { useState } from "react";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import { SegmentedControl } from "../components/SegmentedControl";
 import { MotionTimelineItem } from "../components/TimelineItem";
-import { Post, posts, tabs } from "../data/posts";
+import { posts, tabs } from "../data/posts";
 
 export default function IndexPage() {
   const [tabIndex, setTabIndex] = useState(0);
 
-  // filter posts by tab
-  const filterPosts = (tabName: string) => {
-    return posts.filter((post) => {
-      return tabName === "all" || post.tags.some((tag) => tabName === tag.key);
-    });
-  };
-
-  // posts bucketed by year
-  const bucketedPosts: Record<string, Post[]> = {};
-  filterPosts(tabs[tabIndex].key).forEach((post) => {
-    const year = post.date.getFullYear().toString();
-    const bucket = bucketedPosts[year] ?? [];
-    bucket.push(post);
-    bucketedPosts[year] = bucket;
-  });
-
-  // group names sorted in reverse-chronological order
-  const postGroups = Object.keys(bucketedPosts).sort((a, b) => b.localeCompare(a));
+  const tabName = tabs[tabIndex].key;
+  const filteredPosts =
+    tabName === "all"
+      ? posts
+      : posts.filter((post) => post.tags.some((tag) => tabName === tag.key));
 
   return (
-    <main className="mx-auto max-w-xl space-y-16 p-4">
-      <header className="sticky top-6 z-10 my-8 flex flex-row justify-center">
+    <main className="mx-auto max-w-xl p-4 my-8">
+      <header className="sticky top-6 z-10 flex flex-row justify-center">
         <SegmentedControl options={tabs} selected={tabIndex} onSelect={setTabIndex} />
       </header>
-      <section>
+      <section className="py-16 lg:pb-24">
         <div className="flex flex-wrap items-center gap-6">
           <div className="h-16 w-16 rounded-full ring-1 ring-gray-200">
             <Image
@@ -89,36 +76,18 @@ export default function IndexPage() {
       </section>
       <section>
         <AnimatePresence mode="popLayout" initial={false}>
-          {postGroups.map((groupName) => {
-            return (
-              <div key={groupName}>
-                <motion.h1
-                  className="mb-6 text-xl"
-                  transition={{ duration: 0.2 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  layout
-                >
-                  {groupName}
-                </motion.h1>
-                {bucketedPosts[groupName].map((post, i) => {
-                  return (
-                    <MotionTimelineItem
-                      key={post.title}
-                      post={post}
-                      drawLine={i < bucketedPosts[groupName].length - 1}
-                      transition={{ duration: 0.2 }}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      layout
-                    />
-                  );
-                })}
-              </div>
-            );
-          })}
+          {filteredPosts.map((post, index) => (
+            <MotionTimelineItem
+              key={post.title}
+              post={post}
+              drawLine={index < filteredPosts.length - 1}
+              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              layout
+            />
+          ))}
         </AnimatePresence>
       </section>
     </main>
