@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={inter.variable}>
       <head />
-      <body className="bg-background min-h-screen font-sans antialiased">
+      <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

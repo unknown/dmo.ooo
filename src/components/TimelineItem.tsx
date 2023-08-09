@@ -21,8 +21,8 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
         </p>
         {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
         <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
-        <div className="flex flex-col gap-3 pl-8 pb-8">
-          <p className="text-gray-500 dark:text-gray-400 lg:hidden text-sm font-medium">
+        <div className="flex flex-col gap-3 pb-8 pl-8">
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-400 lg:hidden">
             {dateString}
           </p>
           <div className="flex flex-row flex-wrap gap-3">
@@ -37,7 +37,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
             ))}
           </div>
           <div className="space-y-1">
-            <h2 className="font-semibold text-lg">
+            <h2 className="text-lg font-semibold">
               {url ? (
                 <a
                   href={url}
@@ -46,7 +46,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
                   className="inline-flex items-center underline-offset-4 hover:underline"
                 >
                   {title}
-                  <LinkIcon className="h-4 w-4 ml-1.5" strokeWidth={3} />
+                  <LinkIcon className="ml-1.5 h-4 w-4" strokeWidth={3} />
                 </a>
               ) : (
                 title

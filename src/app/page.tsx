@@ -18,7 +18,7 @@ export default function IndexPage() {
       : posts.filter((post) => post.tags.some((tag) => tabName === tag.key));
 
   return (
-    <main className="mx-auto max-w-xl p-4 my-8">
+    <main className="mx-auto my-8 max-w-xl p-4">
       <header className="sticky top-6 z-10 flex flex-row justify-center">
         <SegmentedControl options={tabs} selected={tabIndex} onSelect={setTabIndex} />
       </header>
@@ -43,7 +43,7 @@ export default function IndexPage() {
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a
-            className="hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
             href="https://github.com/unknown"
             target="_blank"
             rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function IndexPage() {
             <GitHubIcon />
           </motion.a>
           <motion.a
-            className="hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
             href="https://www.linkedin.com/in/davidmo1/"
             target="_blank"
             rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default function IndexPage() {
             <LinkedInIcon />
           </motion.a>
           <motion.a
-            className="hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
             href="mailto:david@dmo.ooo"
             target="_blank"
             rel="noopener noreferrer"

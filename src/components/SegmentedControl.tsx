@@ -20,11 +20,11 @@ export function SegmentedControl({ options, selected, onSelect }: SegmentedContr
 
   return (
     <div
-      className="relative group flex rounded-full border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/80 p-1 shadow-inner backdrop-blur-sm"
+      className="group relative flex rounded-full border border-gray-200 bg-gray-100/80 p-1 shadow-inner backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/80 dark:shadow-none"
       onMouseMove={handleMouseMove}
     >
       <motion.div
-        className="-z-10 pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(
@@ -43,7 +43,7 @@ export function SegmentedControl({ options, selected, onSelect }: SegmentedContr
         >
           <div
             className={twMerge(
-              "absolute inset-0 -z-10 bg-white dark:bg-gray-700 shadow-md rounded-full transition-opacity duration-200",
+              "absolute inset-0 -z-10 rounded-full bg-white shadow-md transition-opacity duration-200 dark:bg-gray-700",
               i === selected ? "opacity-100" : "opacity-0",
             )}
           />
