@@ -16,13 +16,15 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
     });
     return (
       <div className="relative" ref={forwardedRef}>
-        <p className="absolute -left-8 hidden -translate-x-full text-gray-400 lg:block">
+        <p className="absolute -left-8 hidden -translate-x-full text-gray-500 dark:text-gray-400 lg:block">
           {dateString}
         </p>
         {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
         <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
         <div className="flex flex-col gap-3 pl-8 pb-8">
-          <p className="text-gray-400 lg:hidden text-sm font-medium">{dateString}</p>
+          <p className="text-gray-500 dark:text-gray-400 lg:hidden text-sm font-medium">
+            {dateString}
+          </p>
           <div className="flex flex-row flex-wrap gap-3">
             {tags.map((item) => (
               <div
