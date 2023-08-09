@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scrollbar-gutter: stable both-edges;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --spotlight: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --spotlight: 215 28% 20%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scrollbar-gutter: stable both-edges;
+  }
 }

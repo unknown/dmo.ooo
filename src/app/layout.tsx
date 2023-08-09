@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 
 import "../styles/globals.css";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +30,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={inter.variable}>
       <head />
-      <body className="bg-background min-h-screen font-sans antialiased">{children}</body>
+      <body className="bg-background min-h-screen font-sans antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
