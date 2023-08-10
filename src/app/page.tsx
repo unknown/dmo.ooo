@@ -18,7 +18,7 @@ export default function IndexPage() {
       : posts.filter((post) => post.tags.some((tag) => tabName === tag.key));
 
   return (
-    <main className="mx-auto my-8 max-w-xl p-4">
+    <main className="mx-auto max-w-xl px-6 py-12 lg:max-w-2xl">
       <header className="sticky top-6 z-10 flex flex-row justify-center">
         <SegmentedControl options={tabs} selected={tabIndex} onSelect={setTabIndex} />
       </header>
@@ -38,8 +38,9 @@ export default function IndexPage() {
             <p className="text-gray-500 dark:text-gray-400">New York, USA</p>
           </div>
         </div>
-        <p className="mt-6">
-          Computer science student at New York University passionate about programming and design.
+        <p className="mt-6 leading-relaxed">
+          Computer science student at New York University interested in the intersection of
+          programming and design.
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a

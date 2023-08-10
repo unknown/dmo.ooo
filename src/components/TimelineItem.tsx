@@ -21,7 +21,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
         </p>
         {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
         <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
-        <div className="flex flex-col gap-3 pb-8 pl-8">
+        <div className="flex flex-col gap-3 pb-10 pl-10">
           <p className="text-sm font-medium text-gray-500 dark:text-gray-400 lg:hidden">
             {dateString}
           </p>
@@ -36,7 +36,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
               </div>
             ))}
           </div>
-          <div className="space-y-1">
+          <div className="space-y-2">
             <h2 className="text-lg font-semibold">
               {url ? (
                 <a
@@ -52,9 +52,11 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
                 title
               )}
             </h2>
-            {text.split("\n").map((str, i) => (
-              <p key={i}>{str}</p>
-            ))}
+            <div className="space-y-3 leading-relaxed">
+              {text.split("\n").map((str, i) => (
+                <p key={i}>{str}</p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
