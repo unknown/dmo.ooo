@@ -22,8 +22,8 @@ export const posts: Post[] = [
   {
     date: new Date("Aug 7, 2023"),
     title: "Awardrobe",
-    text: "Open-source clothes price tracker that notifies you when your favorite clothes go on sale and come back in stock.\nBuilt using React (Next.js) with a MySQL database for user authentication and data storage.",
-    url: "https://getawardrobe.com/",
+    text: "Clothes price tracker that keeps track of when clothes go on sale and come back in stock.\nTech stack includes Next.js, MySQL, and Meilisearch.",
+    url: "https://awardrobe.co/",
     tags: [
       {
         key: "projects",
@@ -61,7 +61,7 @@ export const posts: Post[] = [
   {
     date: new Date("Jun 16, 2022"),
     title: "Personal website",
-    text: "Designed and built this personal website featuring a timeline of milestones.\nCrafted using React (Next.js) and Framer Motion for animations.",
+    text: "Designed and built this personal website featuring a timeline of milestones.\nCrafted using Next.js and Framer Motion for animations.",
     tags: [
       {
         key: "projects",
@@ -85,7 +85,7 @@ export const posts: Post[] = [
   {
     date: new Date("Mar 25, 2022"),
     title: "Arithmetic",
-    text: "A fast-paced arithmetic drill designed to test mental math.\nBuilt using React (Next.js) with a MySQL database for problem statistics logging.",
+    text: "A fast-paced arithmetic drill designed to test mental math.\nBuilt with Next.js interfacing a MySQL database for problem statistics logging.",
     url: "https://arithmetic.dmo.ooo/",
     tags: [
       {
