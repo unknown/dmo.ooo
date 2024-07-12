@@ -34,13 +34,12 @@ export default function IndexPage() {
             />
           </div>
           <div>
-            <h1 className="text-xl">David Mo</h1>
+            <h1 className="font-heading text-xl font-semibold">David Mo</h1>
             <p className="text-gray-500 dark:text-gray-400">New York, USA</p>
           </div>
         </div>
         <p className="mt-6 leading-relaxed">
-          Computer science student at New York University interested in the intersection of
-          programming and design.
+          Student at New York University interested in programming and design.
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a

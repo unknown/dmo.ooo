@@ -1,11 +1,17 @@
-import { Inter } from "next/font/google";
-
 import "../styles/globals.css";
+
+import { Inter, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "../components/ThemeProvider";
+import { twMerge } from "tailwind-merge";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
 });
 
 export const metadata = {
@@ -28,9 +34,15 @@ type RootLayoutProps = {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head />
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body
+        className={twMerge(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable,
+          spaceGrotesk.variable,
+        )}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

@@ -16,13 +16,13 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
     });
     return (
       <div className="relative" ref={forwardedRef}>
-        <p className="absolute -left-8 hidden -translate-x-full text-gray-500 dark:text-gray-400 lg:block">
+        <p className="absolute -left-8 hidden -translate-x-full text-gray-500 lg:block dark:text-gray-400">
           {dateString}
         </p>
         {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
         <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
         <div className="flex flex-col gap-3 pb-10 pl-10">
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400 lg:hidden">
+          <p className="text-sm font-medium text-gray-500 lg:hidden dark:text-gray-400">
             {dateString}
           </p>
           <div className="flex flex-row flex-wrap gap-3">
@@ -37,7 +37,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
             ))}
           </div>
           <div className="space-y-2">
-            <h2 className="text-lg font-semibold">
+            <h2 className="font-heading text-lg font-semibold">
               {url ? (
                 <a
                   href={url}
