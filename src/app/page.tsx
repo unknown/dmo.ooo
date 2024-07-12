@@ -3,10 +3,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import { SegmentedControl } from "../components/SegmentedControl";
 import { MotionTimelineItem } from "../components/TimelineItem";
 import { posts, tabs } from "../data/posts";
+import { GitHub } from "../components/icons/GitHub";
+import { LinkedIn } from "../components/icons/LinkedIn";
+import { Mail } from "../components/icons/Mail";
 
 export default function IndexPage() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -50,7 +52,7 @@ export default function IndexPage() {
             aria-label="GitHub profile link"
             whileTap={{ scale: 0.95 }}
           >
-            <GitHubIcon />
+            <GitHub />
           </motion.a>
           <motion.a
             className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
@@ -60,7 +62,7 @@ export default function IndexPage() {
             aria-label="LinkedIn profile link"
             whileTap={{ scale: 0.95 }}
           >
-            <LinkedInIcon />
+            <LinkedIn />
           </motion.a>
           <motion.a
             className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
@@ -70,7 +72,7 @@ export default function IndexPage() {
             aria-label="Email link"
             whileTap={{ scale: 0.95 }}
           >
-            <MailIcon />
+            <Mail />
           </motion.a>
         </div>
       </section>

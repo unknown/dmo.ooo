@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { ElementRef, forwardRef } from "react";
 import { Post } from "../data/posts";
-import { LinkIcon } from "./Icons";
+import { ArrowUpRight } from "./icons/ArrowUpRight";
 
 type TimelineItemProps = {
   post: Post;
@@ -46,7 +46,7 @@ export const TimelineItem = forwardRef<ElementRef<"div">, TimelineItemProps>(
                   className="inline-flex items-center underline-offset-4 hover:underline"
                 >
                   {title}
-                  <LinkIcon className="ml-1.5 h-4 w-4" strokeWidth={3} />
+                  <ArrowUpRight className="ml-1.5 h-4 w-4" strokeWidth={3} />
                 </a>
               ) : (
                 title
