@@ -27,10 +27,10 @@ export default function IndexPage() {
         />
       </header>
       <section className="py-16 lg:pb-24">
-        <div className="flex flex-wrap items-center gap-6">
-          <div className="h-16 w-16 rounded-full ring-1 ring-gray-200 dark:ring-gray-800">
+        <div className="flex flex-wrap items-center gap-5">
+          <div className="size-20 rounded-full ring-1 ring-gray-200 dark:ring-gray-800">
             <Image
-              src="/profile.png"
+              src="/profile.jpg"
               alt="Profile picture"
               width={256}
               height={256}
