@@ -20,10 +20,24 @@ export const tabs = [
 
 export const posts: Post[] = [
   {
+    date: new Date("July 15, 2024"),
+    title: "Rust Executor",
+    text: "Built a Rust code playground that allows users to write Rust code and execute it in a sandboxed environment.",
+    url: "https://github.com/unknown/executor",
+    tags: [{ key: "projects", title: "Built a project", color: "#04B4FF70" }],
+  },
+  {
     date: new Date("June 2, 2024"),
     title: "Intern at Capital One",
     text: "Started a summer internship at Capital One as a software developer building a chaos testing tool to test the resilience of the company's systems.",
     tags: [{ key: "experience", title: "Started an internship", color: "#FDC70A70" }],
+  },
+  {
+    date: new Date("May 5, 2024"),
+    title: "JavaScript Compiler",
+    url: "https://github.com/unknown/komodo",
+    text: "Built a JavaScript compiler that transpiles a subset of JavaScript to C.",
+    tags: [{ key: "projects", title: "Built a project", color: "#04B4FF70" }],
   },
   {
     date: new Date("Aug 7, 2023"),
@@ -34,19 +48,6 @@ export const posts: Post[] = [
       {
         key: "projects",
         title: "Launched a project",
-        color: "#04B4FF70",
-      },
-    ],
-  },
-  {
-    date: new Date("Nov 17, 2022"),
-    title: "BUGS @ NYU",
-    text: "Designed and built the new BUGS @ NYU website.\nBUGS is NYU’s premier open source club, connecting students to create an inclusive environment to work on projects together.",
-    url: "https://bugsnyu.com/",
-    tags: [
-      {
-        key: "projects",
-        title: "Built a website",
         color: "#04B4FF70",
       },
     ],
