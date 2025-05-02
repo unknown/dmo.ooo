@@ -21,7 +21,7 @@ export const tabs = [
 export const posts: Post[] = [
   {
     date: new Date("June 2, 2024"),
-    title: "Capital One",
+    title: "Intern at Capital One",
     text: "Started a summer internship at Capital One as a software developer building a chaos testing tool to test the resilience of the company's systems.",
     tags: [{ key: "experience", title: "Started an internship", color: "#FDC70A70" }],
   },
