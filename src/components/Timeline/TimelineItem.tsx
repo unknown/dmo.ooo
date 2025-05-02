@@ -1,5 +1,5 @@
-import { LinkIcon } from "../icons";
 import { TimelineItemComponent } from "./types";
+import { TimelineItemTitle } from "./TimelineItemTitle";
 
 export const TimelineItem: TimelineItemComponent = ({
   post: { date, title, text, url, tags },
@@ -9,15 +9,13 @@ export const TimelineItem: TimelineItemComponent = ({
 
   return (
     <div className="relative">
-      <p className="absolute -left-8 hidden -translate-x-full text-gray-500 lg:block dark:text-gray-400">
-        {dateString}
-      </p>
       {drawLine && <div className="absolute h-full w-px -translate-x-1/2 bg-gray-300" />}
-      <div className="absolute h-4 w-4 -translate-x-1/2 translate-y-1 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
-      <div className="flex flex-col gap-3 pb-10 pl-10">
-        <p className="text-sm font-medium text-gray-500 lg:hidden dark:text-gray-400">
-          {dateString}
-        </p>
+      <div className="absolute flex -translate-x-full items-center gap-6">
+        <p className="text-foreground-muted hidden lg:block">{dateString}</p>
+        <div className="size-3.5 translate-x-1/2 rounded-full border-2 border-gray-300 bg-background ring-8 ring-background" />
+      </div>
+      <div className="flex flex-col gap-3 pb-12 pl-10">
+        <p className="text-foreground-muted text-sm font-medium lg:hidden">{dateString}</p>
         <div className="flex flex-row flex-wrap gap-3">
           {tags.map((item) => (
             <div
@@ -30,21 +28,7 @@ export const TimelineItem: TimelineItemComponent = ({
           ))}
         </div>
         <div className="space-y-2">
-          <h2 className="font-heading text-lg font-semibold">
-            {url ? (
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center underline-offset-4 hover:underline"
-              >
-                {title}
-                <LinkIcon className="ml-1.5 h-4 w-4" strokeWidth={3} />
-              </a>
-            ) : (
-              title
-            )}
-          </h2>
+          <TimelineItemTitle title={title} url={url} />
           <div className="space-y-3 leading-relaxed">
             {text.split("\n").map((str, i) => (
               <p key={i}>{str}</p>

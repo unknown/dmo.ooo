@@ -35,7 +35,7 @@ export default function IndexPage() {
           </div>
           <div>
             <h1 className="font-heading text-xl font-semibold">David Mo</h1>
-            <p className="text-gray-500 dark:text-gray-400">New York, USA</p>
+            <p className="text-foreground-muted">New York, USA</p>
           </div>
         </div>
         <p className="mt-6 leading-relaxed">
@@ -43,7 +43,7 @@ export default function IndexPage() {
         </p>
         <div className="mt-8 flex gap-4">
           <motion.a
-            className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
+            className="hover:text-foreground-muted transition-colors"
             href="https://github.com/unknown"
             target="_blank"
             rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function IndexPage() {
             <GitHubIcon />
           </motion.a>
           <motion.a
-            className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
+            className="hover:text-foreground-muted transition-colors"
             href="https://www.linkedin.com/in/davidmo1/"
             target="_blank"
             rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default function IndexPage() {
             <LinkedInIcon />
           </motion.a>
           <motion.a
-            className="transition-colors hover:text-gray-600 dark:hover:text-gray-400"
+            className="hover:text-foreground-muted transition-colors"
             href="mailto:david@dmo.ooo"
             target="_blank"
             rel="noopener noreferrer"
