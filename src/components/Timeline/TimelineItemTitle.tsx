@@ -3,7 +3,7 @@ import { LinkIcon } from "../icons";
 
 export const TimelineItemTitle: TimelineItemTitleComponent = ({ title, url }) => {
   return (
-    <div className="font-heading text-lg font-semibold">
+    <div className="font-heading text-lg font-semibold font-heading">
       {url ? (
         <div className="group relative w-fit">
           <a

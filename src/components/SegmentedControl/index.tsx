@@ -1,6 +1,7 @@
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import { SegmentedControlComponent } from "./types";
+import { twMerge } from "tailwind-merge";
 
 export const SegmentedControl: SegmentedControlComponent = ({
   options,
@@ -73,7 +74,8 @@ export const SegmentedControl: SegmentedControlComponent = ({
           />
         )}
         {options.map((item, i) => {
-          const showSelectedFallback = useFallback && i === selected;
+          const isSelected = i === selected;
+          const showSelectedFallback = useFallback && isSelected;
 
           return (
             <label
@@ -83,7 +85,10 @@ export const SegmentedControl: SegmentedControlComponent = ({
                   labelRefs.current[i] = el;
                 }
               }}
-              className="relative rounded-full px-4 py-2"
+              className={twMerge(
+                "relative rounded-full px-4 py-2 transition-colors",
+                isSelected ? "text-foreground" : "text-foreground/80",
+              )}
             >
               {showSelectedFallback && (
                 <div className="absolute inset-0 -z-10 rounded-full bg-white shadow-md dark:bg-gray-700/60" />
