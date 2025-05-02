@@ -8,7 +8,7 @@ export const Timeline: TimelineComponent = ({ posts }) => {
       {posts.map((post, i) => (
         <motion.div
           key={post.title}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.5, type: "spring" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
