@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 
 import { Inter, Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "../components/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { twMerge } from "tailwind-merge";
 
 const inter = Inter({
@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={twMerge(
-          "min-h-screen bg-background font-sans antialiased",
+          "bg-background min-h-screen font-sans antialiased",
           inter.variable,
           spaceGrotesk.variable,
         )}

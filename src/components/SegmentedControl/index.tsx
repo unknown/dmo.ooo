@@ -66,7 +66,7 @@ export const SegmentedControl: SegmentedControlComponent = ({
       <div className="relative flex" role="radiogroup">
         {!useFallback && (
           <motion.div
-            className="absolute inset-0 -z-10 rounded-full bg-white shadow-md dark:bg-gray-700/60"
+            className="absolute inset-0 rounded-full bg-white shadow-md dark:bg-gray-700/60"
             style={{
               x: selectedX,
               width: selectedWidth,

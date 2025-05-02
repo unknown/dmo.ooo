@@ -2,6 +2,7 @@
 
 :root {
   --background: oklch(1 0 0);
+  --muted: oklch(0.97 0 0);
   --foreground: oklch(0.145 0 0);
   --foreground-muted: oklch(55.1% 0.027 264.364); /* gray-500 */
   --spotlight: oklch(1 0 0);
@@ -9,6 +10,7 @@
 
 .dark {
   --background: oklch(13% 0.028 261.692); /* gray-950 */
+  --muted: oklch(27.8% 0.033 256.848); /* gray-800 */
   --foreground: oklch(0.985 0 0);
   --foreground-muted: oklch(70.7% 0.022 261.325); /* gray-400 */
   --spotlight: oklch(0.24 0.0238 256.84);
@@ -16,6 +18,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-muted: var(--muted);
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
   --color-spotlight: var(--spotlight);
