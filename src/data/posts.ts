@@ -20,10 +20,16 @@ export const tabs = [
 
 export const posts: Post[] = [
   {
+    date: new Date("June 2, 2024"),
+    title: "Capital One",
+    text: "Started a summer internship at Capital One as a software developer building a chaos testing tool to test the resilience of the company's systems.",
+    tags: [{ key: "experience", title: "Started an internship", color: "#FDC70A70" }],
+  },
+  {
     date: new Date("Aug 7, 2023"),
     title: "Awardrobe",
     text: "Clothes price tracker that keeps track of when clothes go on sale and come back in stock.\nTech stack includes Next.js, MySQL, and Meilisearch.",
-    url: "https://awardrobe.co/",
+    url: "https://github.com/unknown/awardrobe-archive",
     tags: [
       {
         key: "projects",

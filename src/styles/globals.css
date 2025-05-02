@@ -1,23 +1,28 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --spotlight: 0 0% 100%;
-  }
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --spotlight: oklch(1 0 0);
+}
 
-  .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-    --spotlight: 215 28% 13%;
-  }
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --spotlight: oklch(0.24 0.0238 256.84);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-spotlight: var(--spotlight);
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     scrollbar-gutter: stable both-edges;
   }

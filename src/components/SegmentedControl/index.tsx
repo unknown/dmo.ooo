@@ -56,7 +56,7 @@ export const SegmentedControl: SegmentedControlComponent = ({
           background: useMotionTemplate`
             radial-gradient(
               250px circle at ${mouseX}px ${mouseY}px,
-              hsl(var(--spotlight) / 0.65),
+              color-mix(in oklch, var(--spotlight) 65%, transparent),
               transparent 80%
             )
           `,
