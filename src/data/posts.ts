@@ -3,19 +3,22 @@ export type Post = {
   title: string;
   text: string;
   url?: string;
-  tags: Tag[];
+  tags: PostTag[];
 };
 
-export type Tag = {
-  key: string;
+export type PostTag = {
+  tag: Tag;
   title: string;
   color: string;
 };
 
-export const tabs = [
-  { key: "all", title: "All" },
-  { key: "projects", title: "Projects" },
-  { key: "experience", title: "Experience" },
+export const TAGS = ["all", "projects", "experience"] as const;
+export type Tag = (typeof TAGS)[number];
+
+export const tabs: { tag: Tag; title: string }[] = [
+  { tag: "all", title: "All" },
+  { tag: "projects", title: "Projects" },
+  { tag: "experience", title: "Experience" },
 ];
 
 export const posts: Post[] = [
@@ -24,20 +27,20 @@ export const posts: Post[] = [
     title: "Rust Executor",
     text: "Built a Rust code playground that allows users to write Rust code and execute it in a sandboxed environment.",
     url: "https://github.com/unknown/executor",
-    tags: [{ key: "projects", title: "Built a project", color: "#04B4FF70" }],
+    tags: [{ tag: "projects", title: "Built a project", color: "#04B4FF70" }],
   },
   {
     date: new Date("June 2, 2024"),
     title: "Intern at Capital One",
     text: "Started a summer internship at Capital One as a software developer building a chaos testing tool to test the resilience of the company's systems.",
-    tags: [{ key: "experience", title: "Started an internship", color: "#FDC70A70" }],
+    tags: [{ tag: "experience", title: "Started an internship", color: "#FDC70A70" }],
   },
   {
     date: new Date("May 5, 2024"),
     title: "JavaScript Compiler",
     url: "https://github.com/unknown/komodo",
     text: "Built a JavaScript compiler that transpiles a subset of JavaScript to C.",
-    tags: [{ key: "projects", title: "Built a project", color: "#04B4FF70" }],
+    tags: [{ tag: "projects", title: "Built a project", color: "#04B4FF70" }],
   },
   {
     date: new Date("Aug 7, 2023"),
@@ -46,7 +49,7 @@ export const posts: Post[] = [
     url: "https://github.com/unknown/awardrobe-archive",
     tags: [
       {
-        key: "projects",
+        tag: "projects",
         title: "Launched a project",
         color: "#04B4FF70",
       },
@@ -59,7 +62,7 @@ export const posts: Post[] = [
     url: "https://www.givechariot.com/",
     tags: [
       {
-        key: "experience",
+        tag: "experience",
         title: "Started an internship",
         color: "#FDC70A70",
       },
@@ -71,7 +74,7 @@ export const posts: Post[] = [
     text: "Designed and built this personal website featuring a timeline of milestones.\nCrafted using Next.js and Framer Motion for animations.",
     tags: [
       {
-        key: "projects",
+        tag: "projects",
         title: "Built this website",
         color: "#04B4FF70",
       },
@@ -83,7 +86,7 @@ export const posts: Post[] = [
     text: "Started a summer internship at Moore Capital Management as a software developer on the Portfolio and Risk Team.",
     tags: [
       {
-        key: "experience",
+        tag: "experience",
         title: "Started an internship",
         color: "#FDC70A70",
       },
@@ -96,7 +99,7 @@ export const posts: Post[] = [
     url: "https://arithmetic.dmo.ooo/",
     tags: [
       {
-        key: "projects",
+        tag: "projects",
         title: "Launched a project",
         color: "#04B4FF70",
       },
@@ -109,7 +112,7 @@ export const posts: Post[] = [
     url: "https://github.com/unknown/dark-patterns-recognition",
     tags: [
       {
-        key: "projects",
+        tag: "projects",
         title: "Attended a hackathon",
         color: "#04B4FF70",
       },

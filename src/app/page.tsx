@@ -11,16 +11,20 @@ import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/icons";
 export default function IndexPage() {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const tabName = tabs[tabIndex].key;
+  const tabName = tabs[tabIndex].tag;
   const filteredPosts =
     tabName === "all"
       ? posts
-      : posts.filter((post) => post.tags.some((tag) => tabName === tag.key));
+      : posts.filter((post) => post.tags.some((tag) => tabName === tag.tag));
 
   return (
     <main className="mx-auto max-w-xl px-6 py-12 lg:max-w-2xl">
       <header className="sticky top-6 z-10 flex flex-row justify-center">
-        <SegmentedControl options={tabs} selected={tabIndex} onSelect={setTabIndex} />
+        <SegmentedControl
+          options={tabs.map(({ tag, title }) => ({ title, key: tag }))}
+          selected={tabIndex}
+          onSelect={setTabIndex}
+        />
       </header>
       <section className="py-16 lg:pb-24">
         <div className="flex flex-wrap items-center gap-6">
@@ -31,6 +35,7 @@ export default function IndexPage() {
               width={256}
               height={256}
               className="rounded-full"
+              priority
             />
           </div>
           <div>

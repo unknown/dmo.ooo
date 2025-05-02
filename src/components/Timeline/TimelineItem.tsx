@@ -19,7 +19,7 @@ export const TimelineItem: TimelineItemComponent = ({
         <div className="flex flex-row flex-wrap gap-3">
           {tags.map((item) => (
             <div
-              key={item.key}
+              key={item.tag}
               className="rounded-lg px-3 py-1 text-sm font-medium"
               style={{ background: item.color }}
             >

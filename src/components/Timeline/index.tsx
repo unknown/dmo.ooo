@@ -8,7 +8,6 @@ export const Timeline: TimelineComponent = ({ posts }) => {
       {posts.map((post, i) => (
         <motion.div
           key={post.title}
-          className="flex"
           transition={{ duration: 0.2 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
