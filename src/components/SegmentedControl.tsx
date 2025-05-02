@@ -16,7 +16,7 @@ export function SegmentedControl({
 }: SegmentedControlProps) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const labelRefs = useRef<(HTMLLabelElement | null)[]>([]);
+  const labelRefs = useRef<HTMLLabelElement[]>([]);
 
   const selectedX = useSpring(0, { damping: 30, stiffness: 400 });
   const selectedWidth = useSpring(0, { damping: 30, stiffness: 400 });
@@ -84,10 +84,12 @@ export function SegmentedControl({
           return (
             <label
               key={item.key}
-              ref={(el: HTMLLabelElement | null) => {
-                labelRefs.current[i] = el;
+              ref={(el) => {
+                if (el) {
+                  labelRefs.current[i] = el;
+                }
               }}
-              className="relative cursor-pointer rounded-full px-4 py-2"
+              className="relative rounded-full px-4 py-2"
             >
               {showSelectedFallback && (
                 <div className="absolute inset-0 -z-10 rounded-full bg-white shadow-md dark:bg-gray-700/60" />
