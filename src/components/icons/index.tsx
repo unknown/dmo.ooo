@@ -27,7 +27,8 @@ export const GitHubIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((pr
     </svg>
   );
 });
-GitHubIcon.displayName = "GithubIcon";
+
+GitHubIcon.displayName = "GitHubIcon";
 
 export const TwitterIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (
@@ -50,6 +51,7 @@ export const TwitterIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((p
     </svg>
   );
 });
+
 TwitterIcon.displayName = "TwitterIcon";
 
 export const LinkedInIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
@@ -86,6 +88,7 @@ export const LinkedInIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((
     </svg>
   );
 });
+
 LinkedInIcon.displayName = "LinkedInIcon";
 
 export const MailIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
@@ -113,6 +116,7 @@ export const MailIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((prop
     </svg>
   );
 });
+
 MailIcon.displayName = "MailIcon";
 
 export const LinkIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
@@ -142,4 +146,5 @@ export const LinkIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((prop
     </svg>
   );
 });
+
 LinkIcon.displayName = "LinkIcon";

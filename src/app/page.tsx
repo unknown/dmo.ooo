@@ -1,12 +1,12 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/Icons";
 import { SegmentedControl } from "../components/SegmentedControl";
-import { MotionTimelineItem } from "../components/TimelineItem";
 import { posts, tabs } from "../data/posts";
+import { Timeline } from "../components/Timeline";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "../components/icons";
 
 export default function IndexPage() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -75,20 +75,7 @@ export default function IndexPage() {
         </div>
       </section>
       <section>
-        <AnimatePresence mode="popLayout" initial={false}>
-          {filteredPosts.map((post, index) => (
-            <MotionTimelineItem
-              key={post.title}
-              post={post}
-              drawLine={index < filteredPosts.length - 1}
-              transition={{ duration: 0.2 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              layout
-            />
-          ))}
-        </AnimatePresence>
+        <Timeline posts={filteredPosts} />
       </section>
     </main>
   );

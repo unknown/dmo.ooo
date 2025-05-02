@@ -1,19 +1,13 @@
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
+import { SegmentedControlComponent } from "./types";
 
-type SegmentedControlProps = {
-  options: { key: string; title: string }[];
-  selected: number;
-  onSelect: (selected: number) => void;
-  name?: string;
-};
-
-export function SegmentedControl({
+export const SegmentedControl: SegmentedControlComponent = ({
   options,
   selected,
   onSelect: consumerOnSelect,
   name = "segmented-control",
-}: SegmentedControlProps) {
+}) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const labelRefs = useRef<HTMLLabelElement[]>([]);
@@ -109,4 +103,4 @@ export function SegmentedControl({
       </div>
     </div>
   );
-}
+};
