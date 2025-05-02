@@ -1,16 +1,40 @@
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import React, { MouseEvent } from "react";
-import { twMerge } from "tailwind-merge";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 type SegmentedControlProps = {
   options: { key: string; title: string }[];
   selected: number;
   onSelect: (selected: number) => void;
+  name?: string;
 };
 
-export function SegmentedControl({ options, selected, onSelect }: SegmentedControlProps) {
+export function SegmentedControl({
+  options,
+  selected,
+  onSelect: consumerOnSelect,
+  name = "segmented-control",
+}: SegmentedControlProps) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const labelRefs = useRef<(HTMLLabelElement | null)[]>([]);
+
+  const selectedX = useSpring(0, { damping: 30, stiffness: 400 });
+  const selectedWidth = useSpring(0, { damping: 30, stiffness: 400 });
+  const [useFallback, setUseFallback] = useState(true);
+
+  useEffect(
+    () => {
+      const selectedLabel = labelRefs.current[selected];
+      if (selectedLabel) {
+        selectedX.jump(selectedLabel.offsetLeft);
+        selectedWidth.jump(selectedLabel.offsetWidth);
+      }
+      setUseFallback(false);
+    },
+    // We need the initial `selected` value, but not on subsequent renders.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selectedX, selectedWidth],
+  );
 
   function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
     const { left, top } = currentTarget.getBoundingClientRect();
@@ -18,9 +42,18 @@ export function SegmentedControl({ options, selected, onSelect }: SegmentedContr
     mouseY.set(clientY - top);
   }
 
+  function onSelect(index: number) {
+    consumerOnSelect(index);
+    const selectedLabel = labelRefs.current[index];
+    if (selectedLabel) {
+      selectedX.set(selectedLabel.offsetLeft);
+      selectedWidth.set(selectedLabel.offsetWidth);
+    }
+  }
+
   return (
     <div
-      className="group relative flex rounded-full border border-gray-200 bg-gray-100/80 p-1 shadow-inner backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/80 dark:shadow-none"
+      className="group rounded-full border border-gray-200 bg-gray-100/80 p-1 shadow-inner backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/80 dark:shadow-none"
       onMouseMove={handleMouseMove}
     >
       <motion.div
@@ -35,21 +68,43 @@ export function SegmentedControl({ options, selected, onSelect }: SegmentedContr
           `,
         }}
       />
-      {options.map((item, i) => (
-        <button
-          key={item.key}
-          className="relative rounded-full px-4 py-2"
-          onClick={() => onSelect(i)}
-        >
-          <div
-            className={twMerge(
-              "absolute inset-0 -z-10 rounded-full bg-white shadow-md transition-opacity duration-200 dark:bg-gray-700/60",
-              i === selected ? "opacity-100" : "opacity-0",
-            )}
+      <div className="relative flex" role="radiogroup">
+        {!useFallback && (
+          <motion.div
+            className="absolute inset-0 -z-10 rounded-full bg-white shadow-md dark:bg-gray-700/60"
+            style={{
+              x: selectedX,
+              width: selectedWidth,
+            }}
           />
-          {item.title}
-        </button>
-      ))}
+        )}
+        {options.map((item, i) => {
+          const showSelectedFallback = useFallback && i === selected;
+
+          return (
+            <label
+              key={item.key}
+              ref={(el: HTMLLabelElement | null) => {
+                labelRefs.current[i] = el;
+              }}
+              className="relative cursor-pointer rounded-full px-4 py-2"
+            >
+              {showSelectedFallback && (
+                <div className="absolute inset-0 -z-10 rounded-full bg-white shadow-md dark:bg-gray-700/60" />
+              )}
+              <input
+                type="radio"
+                name={name}
+                value={item.key}
+                checked={i === selected}
+                onChange={() => onSelect(i)}
+                className="sr-only"
+              />
+              {item.title}
+            </label>
+          );
+        })}
+      </div>
     </div>
   );
 }
