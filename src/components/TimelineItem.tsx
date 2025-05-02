@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import React, { ElementRef, forwardRef } from "react";
 import { Post } from "../data/posts";
 import { LinkIcon } from "./Icons";

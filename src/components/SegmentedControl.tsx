@@ -1,4 +1,4 @@
-import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 type SegmentedControlProps = {
