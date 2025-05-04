@@ -9,10 +9,12 @@ export const TimelineItem: TimelineItemComponent = ({
 
   return (
     <div className="relative">
-      {drawLine && <div className="bg-foreground-muted absolute h-full w-px -translate-x-1/2" />}
+      {drawLine && (
+        <div className="bg-foreground-muted absolute top-3 h-full w-px -translate-x-1/2" />
+      )}
       <div className="absolute top-1 flex -translate-x-full items-center gap-4">
         <p className="text-foreground-muted hidden text-sm font-medium lg:block">{dateString}</p>
-        <div className="bg-background ring-background border-foreground-muted size-3.5 translate-x-1/2 rounded-full border-2 ring-8" />
+        <div className="bg-background ring-background border-foreground-muted size-3 translate-x-1/2 rounded-full border-2 ring-6" />
       </div>
       <div className="flex flex-col gap-3 pb-12 pl-8">
         <p className="text-foreground-muted text-sm font-medium lg:hidden">{dateString}</p>
@@ -24,12 +26,12 @@ export const TimelineItem: TimelineItemComponent = ({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="peer inline-flex items-center"
+                  className="peer inline-flex flex-wrap items-center"
                 >
                   {title}
                   <LinkIcon className="ml-1.5 size-4" strokeWidth={2.5} />
                 </a>
-                <div className="bg-foreground absolute -bottom-px h-0.5 w-0 rounded-full transition-all duration-50 peer-hover:w-full" />
+                <div className="bg-foreground absolute bottom-px h-0.5 w-0 rounded-full transition-all duration-50 peer-hover:w-full" />
               </div>
             ) : (
               title
@@ -48,12 +50,12 @@ export const TimelineItem: TimelineItemComponent = ({
                 <img
                   src={src}
                   alt={alt}
-                  className="max-h-84 rounded-md border border-gray-200 shadow-md dark:border-gray-800 dark:shadow-none"
+                  className="max-h-84 rounded-md border border-gray-200 shadow-md dark:border-gray-800"
                 />
               ))}
             </div>
           )}
-          <div className="mt-4 space-y-3 leading-normal">
+          <div className="mt-4 space-y-3 text-gray-800 dark:text-gray-200">
             {text.split("\n").map((str, i) => (
               <p key={i}>{str}</p>
             ))}
